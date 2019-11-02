@@ -5,6 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style type="text/css">
+	   #pageContainer {
+		background-image: url(images/background-home.jpg);
+        background-size: contain;
+        background-repeat: repeat-x;
+	  }
       a {
         letter-spacing: 0.05em;
         word-spacing: 0em;
@@ -12,6 +17,8 @@
       #welcomeText {
         margin: 30px;
         margin-bottom: 0;
+        color: black;
+        text-shadow: 1px 1px 2px green;
       }
       #orText {
         margin: 50px;
@@ -30,20 +37,20 @@
       .search-container button {
         padding: 6px 10px;
         margin-top: 8px;
-        background: green;
         font-size: 17px;
-        border: 2px 2px limegreen;
         cursor: pointer;
-        width: 9%;
+        width: 8%;
+		border: 1px solid green;
+		background: white;
       }
         input[type=text] {
         padding: 6px;
         margin-top: 8px;
         font-size: 17px;
         width: 85%;
+		border: 1px solid green;
       }
         .search-container button:hover {
-        background: white;
         box-shadow: 1px 1px 6px 2px green;
       }
       input[type=text]:focus {
