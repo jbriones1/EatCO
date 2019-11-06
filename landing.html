@@ -3,30 +3,85 @@
   <head>
     <meta charset="utf-8">
     <title> Landing Page </title>
-      
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap" rel="stylesheet">  
     <style>
       
       body {
-        overflow: hidden;
+        width: 100%;
         background-image: url(images/landingpage_background.jpg);
+        background-repeat: no-repeat;
+        
+        font-family: "Roboto", sans-serif;
       }
       
-      #root{
+      body * {
+        font-family: inherit;
+      }
+      
+      body
+      
+      #root {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+      }
+      
+      #container {
+
+      }
+      
+      header {
+        display: flex;
+        justify-content: space-between;
+      }
+      
+      
+      .logozone {
         
       }
       
-      #topbar {
-        display: flex;
+      .logo {
+        margin: 5px;
       }
       
-      #logo {
-        display: flex;
+      .login {
+        margin-top: 5px;
+        margin-right: 5px;
       }
       
-      #addressbar {
-        display: flex;
-        margin-top: 20%;
-        justify-content: center;
+      .login a {
+        font-size: 20pt;
+        color: white;
+        
+        text-shadow: 
+          2px 2px 5px #000;
+      }
+      
+      .login a:hover {
+        text-decoration: none;
+      }
+      
+      
+      #midbar {
+        position: relative;
+        width: 90%;
+        margin-bottom: 5%;
+        bottom: -200px;
+      }
+      
+      #midbar > p {
+        text-align: center;
+        font-family: "Robot", sans-serif;
+        font-size: 50pt;
+        color: white;
+        
+        text-shadow: 2px 2px 5px#000;
+      }
+      
+      .input-group {
+        margin-left: 5%;
       }
       
     </style>
@@ -34,14 +89,26 @@
   
   <body>
     <div id="root">
-
-      <div id="topbar">
-        <div id="logo"> Green Eater </div>
+      <div id="container">
+        <header>
+          <div class="logozone"> 
+            <img class="logo" src="https://dummyimage.com/100x50/fff/000&text=Logo">
+          </div>
+          <div class="login"> 
+            <a href="index.html">Login</a>
+          </div>
+        </header>
+        
+        <div id="midbar">
+          <p> Start eating green</p>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Enter your address" aria-label="" aria-describedby="basic-addon1" >
+            <div class="input-group-append">
+            <button class="btn btn-success" type="button">Let's go!</button>
+          </div>
+          </div>
+        </div>
       </div>
-      <div id="addressbar">
-        <input type="text">
-      </div>
-
     </div>
   </body>
 </html>
