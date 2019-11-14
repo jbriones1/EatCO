@@ -1,121 +1,205 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Main Page Prototype 2</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://kit.fontawesome.com/68565aa008.js" crossorigin="anonymous"></script>
-    <style type="text/css">
-      html {
-        height: 100%;
-      }
-      body {
-        font-family: "Roboto";
-        /* background-image: url(images/background-home3blurred.jpg); */
-        background-image: url(images/landingpage_background.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 100vh;
-      }
-      .navbar-toggler-icon {
-        color: green;
-      }
-      .custom-toggler .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-      }
-      a {
-        letter-spacing: 0.05em;
-        word-spacing: 0em;
-      }
-      #welcome {
-        color: white;
-        text-shadow: 0px 0px 4px black;
-        margin: 10%;
-        margin-top: 55%;
-        letter-spacing: 0.1em;
-      }
-      #search {
-        width: 90%;
-        margin: 0 auto;
-        box-shadow: 0px 0px 4px #3fbf43;
-      }
-      #or {
-        margin: 10%;
-        text-align: center;
-        color: white;
-        text-shadow: 0px 0px 4px black;
-      }
-      
-      #mapButton {
+
+<head>
+  <title>Main Page Prototype 2</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://kit.fontawesome.com/68565aa008.js" crossorigin="anonymous"></script>
+  <style type="text/css">
+    html {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Roboto";
+      /* background-image: url(images/background-home3blurred.jpg); */
+      background-image: url(images/landingpage_background.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+
+    .navbar-toggler-icon {
+      color: green;
+    }
+
+    .custom-toggler .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    }
+
+    a {
+      letter-spacing: 0.05em;
+      word-spacing: 0em;
+    }
+
+    #welcome {
+      color: white;
+      text-shadow: 0px 0px 4px black;
+      margin: 10%;
+      margin-top: 55%;
+      letter-spacing: 0.1em;
+    }
+
+    #search {
+      width: 90%;
+      margin: 0 auto;
+      box-shadow: 0px 0px 4px #3fbf43;
+    }
+
+    #or {
+      margin: 10%;
+      text-align: center;
+      color: white;
+      text-shadow: 0px 0px 4px black;
+    }
+
+    #mapButton {
       /*  width: 120px;
         height: 75px;*/
-        font-size: 16pt;
-        color: white;
-        border: none;
-        background-color: #3fbf43;
-        box-shadow: 0px 0px 5px black;
-        padding: 1em;
-      }
-      #button {
+      font-size: 16pt;
+      color: white;
+      border: none;
+      background-color: #3fbf43;
+      box-shadow: 0px 0px 5px black;
+      padding: 1em;
+    }
+
+    #button {
+      text-align: center;
+    }
+
+    @media only screen and (min-width: 768px) {
+      #welcome {
+        margin: 5%;
         text-align: center;
+        font-size: 60pt;
       }
-      @media only screen and (min-width: 768px) {
-        #welcome {
-          margin: 5%;
-          text-align: center;
-          font-size: 60pt;
-        }
-        #search {
-          width: 50%;
-        }
-        #or {
-          margin: 5%;
-        }
-      }
-    </style>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Navbar Prototype</title>
 
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #3fbf43">
-      <a class="navbar-brand text-light" href="#">
-        <img src="images/logo_512.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Green Eating App
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#">My Account</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#">Leave A Review</a>
-          </li>
-        </ul>
-      </div>
-      <p> Hello <span id="test"> </span></p>
-    </nav>
-    <h1 id="welcome">Welcome!</h1>
-    <div id="search" class="input-group">
-      <input type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
-      <div class="input-group-append">
-        <button class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
-      </div>
+      #search {
+        width: 50%;
+      }
+
+      #or {
+        margin: 5%;
+      }
+    }
+  </style>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Navbar Prototype</title>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #3fbf43">
+    <a class="navbar-brand text-light" href="#">
+      <img src="images/logo_512.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Green Eating App
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">My Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Leave A Review</a>
+        </li>
+      </ul>
     </div>
-    <h3 id="or">OR</h3>
-    <form id="button">
-      <input type="button" value="View Map" id="mapButton">
-    </form>
+    <!-- <p> Hello <span id="test"> </span></p> -->
+  </nav>
+  <h1 id="welcome">Welcome!</h1>
+  <div id="search" class="input-group">
+    <input type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
+    <div class="input-group-append">
+      <button class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
+    </div>
+  </div>
+  <h3 id="or">OR</h3>
+  <form id="button">
+    <input type="button" value="View Map" id="mapButton">
+  </form>
+  <!------------------------------------------------------------------------------>
+  <!-- set Firebase products that you want to use                               -->
+  <!------------------------------------------------------------------------------>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyC9YM5dqaYge25eK6S0iVlDcM0yzi4BEmw",
+      authDomain: "oct31-a221a.firebaseapp.com",
+      databaseURL: "https://oct31-a221a.firebaseio.com",
+      projectId: "oct31-a221a",
+      storageBucket: "oct31-a221a.appspot.com",
+      messagingSenderId: "391395776420",
+      appId: "1:391395776420:web:294a9319f6b39977aa5331"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script type="text/javascript" type="user_id.js"></script>
+  <script>
+    //     firebase.auth().onAuthStateChanged(function (user) {
+    //       if (user) {
+    //         console.log(user.displayName);
+    //         document.getElementById("test").innerHTML = user.displayName;
+    //         user.once('value', function (snapshot) {
+    //           if (snapshot.exists()) {
+    //             console.log('exists');
+    //           } else {
+    //             db.collection("users").add({
+    //               "name": user.displayName,
+    //               "email": user.email,
+    //               "userid": user.uid});
+    //           }
+    //         });
+    //       } else {
+    //         console.log(user);
+    //       }
+    // });
+  
+    if (user) {
+      function createUser() {
+        firebase.auth().onAuthStateChanged(function (user) {
+          console.log("working");
+          db.collection("users").doc("user.id").set({
+            "name": user.displayName,
+            "email": user.email,
+          }, {
+            merge: true});
+        });
+      }
+      console.log(user);
+      createUser();
+    } else {
+      console.log("No user detected.");
+    }
+  </script>
+</body>
+
+
 </html>

@@ -91,6 +91,10 @@
     div.review p {
       float: right;
     }
+    .review-box {
+      display: flex;
+      text-align: center;
+    }
   </style>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -170,8 +174,15 @@
   <div id="reviews">
     <h3>Reviews</h3>
     <div class="review">
-      <img src="images/burger.png">
-      <p>This restaurant fucking sucks wtf!</p>
+      <div class="review-box">
+        <p> Test Review </p>
+        <form> 
+          <div>
+            <label> Review </label>
+            <textarea id="review-textarea"></textarea>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
     
