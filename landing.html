@@ -3,92 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title> Landing Page </title>
+      <link rel="stylesheet" href="./css/landing.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <style>
-      
-      body {
-        width: 100%;
-        background-image: url(images/landingpage_background.jpg);
-        background-repeat: no-repeat;
-        
-        font-family: "Roboto", sans-serif;
-      }
-      
-      body * {
-        font-family: inherit;
-      }
-      
-      body
-      
-      #root {
-        display: flex;
-        flex-flow: column;
-        height: 100%;
-      }
-      
-      #container {
 
-      }
-      
-      header {
-        display: flex;
-        justify-content: space-between;
-      }
-      
-      
-      
-      .logo {
-        margin: 30px 0 0 30px;
-        width: 128px;
-        width: 128px;
-        padding: 2px;
-        
-        box-shadow: 2px 2px 5px #fff;
-        background-color: #1E5B32;
-        border-radius: 20%;
-      }
-      
-      .login {
-      }
-      
-      .login a {
-        font-size: 20pt;
-        color: white;
-        margin: 30px 30px 0 0;
-        
-        text-shadow: 2px 2px 5px #000;
-      }
-      
-      .login a:hover {
-        text-decoration: none;
-      }
-      
-      
-      #midbar {
-        position: relative;
-        width: 90%;
-        margin-bottom: 5%;
-        bottom: -200px;
-      }
-      
-      #midbar > p {
-        text-align: center;
-        font-family: "Robot", sans-serif;
-        font-size: 50pt;
-        color: white;
-        
-        text-shadow: 2px 2px 5px#000;
-      }
-      
-      .input-group {
-        margin-left: 5%;
-      }
-      
-    </style>
   </head>
   
   <body>
@@ -104,7 +25,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-link text-light" href="#">Login<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="#">My Account</a>
@@ -115,25 +36,14 @@
         </ul>
       </div>
     </nav>
-    <h1 id="welcome">Welcome!</h1>
-    <div id="search" class="input-group">
-      <input type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
-      <div class="input-group-append">
-        <button class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
-      </div>
-    </div>
-    <h3 id="or">OR</h3>
-    <form id="button">
-      <input type="button" value="View Map" id="mapButton">
-    </form>
+ 
+   
+
+
     <div id="root">
       <div id="container">
-        <header>
-      
-          <div class="login">
-            <a href="login.html">Login</a>
-          </div>
-        </header>
+
+
         
         <div id="midbar">
           <p> Start eating green</p>
