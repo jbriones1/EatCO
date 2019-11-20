@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title> Test page for search </title>
+  </head>
+  
+  <body>
+    <form id="restaurant-options">
+      <button id="jons-grill">Jon's grill</button>
+      <button id="brians-big-brain-bar" value="j6ZVZKZRYkRNwCegD4fb">Brian's Big Brain Bar</button>
+    </form>
+    
+    <!----------------->
+    <!---- Scripts ---->
+    <!----------------->
+    <script>
+      document.getElementById("restaurant-options").addEventListener("submit", processForm);
+      function processForm(e) {
+        e.preventDefault();
+        var jonsGrill = document.getElementById("jons-grill").value;
+        var briansBar = document.getElementById("brians-big-brain-bar").value;
+        
+        localStorage.setItem("restaurantName", briansBar);
+        console.log("Restaurant name" + jonsGrill);
+      }
+    </script>
+  </body>
+</html>

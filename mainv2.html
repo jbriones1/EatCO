@@ -13,10 +13,6 @@
 
     body {
       font-family: "Roboto";
-      /* background-image: url(images/background-home3blurred.jpg); */
-      background-image: url(images/landingpage_background.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
       height: 100vh;
     }
 
@@ -140,13 +136,13 @@
   <script>
     // Your web app's Firebase configuration
     var firebaseConfig = {
-      apiKey: "AIzaSyC9YM5dqaYge25eK6S0iVlDcM0yzi4BEmw",
-      authDomain: "oct31-a221a.firebaseapp.com",
-      databaseURL: "https://oct31-a221a.firebaseio.com",
-      projectId: "oct31-a221a",
-      storageBucket: "oct31-a221a.appspot.com",
-      messagingSenderId: "391395776420",
-      appId: "1:391395776420:web:294a9319f6b39977aa5331"
+      apiKey: "AIzaSyCo-LlpYtYvJMyMeX8gZ641jH_QD7iEHXk",
+      authDomain: "comp1930-app.firebaseapp.com",
+      databaseURL: "https://comp1930-app.firebaseio.com",
+      projectId: "comp1930-app",
+      storageBucket: "comp1930-app.appspot.com",
+      messagingSenderId: "862102020646",
+      appId: "1:862102020646:web:fae4e0f72f0f01df81fce7"
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
@@ -163,41 +159,43 @@
   </script>
   <script type="text/javascript" type="user_id.js"></script>
   <script>
-    //     firebase.auth().onAuthStateChanged(function (user) {
-    //       if (user) {
-    //         console.log(user.displayName);
-    //         document.getElementById("test").innerHTML = user.displayName;
-    //         user.once('value', function (snapshot) {
-    //           if (snapshot.exists()) {
-    //             console.log('exists');
-    //           } else {
-    //             db.collection("users").add({
-    //               "name": user.displayName,
-    //               "email": user.email,
-    //               "userid": user.uid});
-    //           }
-    //         });
-    //       } else {
-    //         console.log(user);
-    //       }
-    // });
+   firebase.auth().onAuthStateChanged(function (user) {
+     if (user) {
+       console.log(user.displayName);
+       document.getElementById("test").innerHTML = user.displayName;
+       user.once('value', function (snapshot) {
+         if (snapshot.exists()) {
+           console.log('exists');
+         } else {
+           db.collection("users").add({
+             "name": user.displayName,
+             "email": user.email,
+             "userid": user.uid});
+         }
+       });
+     } else {
+       console.log(user);
+     }
+    });
+
+    
   
-    if (user) {
-      function createUser() {
-        firebase.auth().onAuthStateChanged(function (user) {
-          console.log("working");
-          db.collection("users").doc("user.id").set({
-            "name": user.displayName,
-            "email": user.email,
-          }, {
-            merge: true});
-        });
-      }
-      console.log(user);
-      createUser();
-    } else {
-      console.log("No user detected.");
-    }
+//    if (user) {
+//      function createUser() {
+//        firebase.auth().onAuthStateChanged(function (user) {
+//          console.log("working");
+//          db.collection("users").doc("user.id").set({
+//            "name": user.displayName,
+//            "email": user.email,
+//          }, {
+//            merge: true});
+//        });
+//      }
+//      console.log(user);
+//      createUser();
+//    } else {
+//      console.log("No user detected.");
+//    }
   </script>
 </body>
 
