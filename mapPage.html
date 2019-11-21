@@ -4,8 +4,8 @@
     <title>Testing of Map</title>
     <meta charset="utf-8">
     <style>
-      body {
-        background-color: beige;
+      nav {
+        min-height: 100px;
       }
       #map {
         width: 100%;
@@ -84,7 +84,7 @@
       function initMap() {
         var bcit = {lat: 49.250, lng: -123.000};
         var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 17.5, center: bcit});
+          document.getElementById('map'), {zoom: 15.5, center: bcit});
         var pinImage = {
         url: './images/leafPin2.png',
         labelOrigin: new google.maps.Point(65, 150)
