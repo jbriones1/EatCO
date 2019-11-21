@@ -219,7 +219,7 @@
   </script>
   <script>
     var restaurant = db.collection("Restaurants");
-    var reviews = restaurant.doc("z6jMLnApFK6V6cKASIBm").collection("Reviews");
+
     // ------------------------------
     // ------ Restaurant Info  ------
     // ------------------------------
@@ -250,36 +250,38 @@
     // ------------------------------
     // ------ Writing a review ------
     // ------------------------------
+    // Grabs the review section
+    var reviews = restaurant.doc("z6jMLnApFK6V6cKASIBm").collection("Reviews");
     var reviewSection = document.getElementById("review-section");
-    function loadReviews() {
-      reviews.get()
+    function loadReviews() { // function to load reviews to the page
+      reviews.get() // grabs the docs from the reviews docs from the "Reviews" collection
         .then(function(snap) {
-        snap.forEach(function(doc) {
-          let r = doc.data().review;
-          console.log(r);
+        snap.forEach(function(doc) { // goes through each document
+          let r = doc.data().review; // grabs the review portion
           
+          // creates a bunch of paragraphs that list out all of the reviews.
           let para = document.createElement("div");
           para.setAttribute("id", r);
           reviewSection.appendChild(para);
-          let node = document.createTextNode(r);
+          let node = document.createTextNode(r); 
           para.appendChild(node);
         })
       });
     }
-    document.getElementById("send-review").addEventListener("click", submitReview);
+    document.getElementById("send-review").addEventListener("click", submitReview); // attaches a click listener to the submit button
     
-    function submitReview(e) {
-      var reviewText = document.getElementById("review-textarea").value;
+    function submitReview(e) { // function to write a review to the restaurant
+      var reviewText = document.getElementById("review-textarea").value; // text field where the review is typed
       
       reviews.doc().set( {
-        review: reviewText
+        review: reviewText, // creates a doc that has a review field that stores what the review is
+        timestamp: db.FieldValue.serverTimestamp() // grabs the server timestamp
       }).then(function() { 
-        console.log("Sent " + reviewText);
-        let para = document.createElement("div");
-        reviewSection.appendChild(para);
-        let node = document.createTextNode(reviewText);
-        para.appendChild(node);
-        reviewText.value = "";
+        let para = document.createElement("div"); 
+        reviewSection.appendChild(para); 
+        let node = document.createTextNode(reviewText); 
+        para.appendChild(node); // creates a paragraph of the review onto the webpage
+        reviewText.value = " "; // supposed to set the textfield to nothing after review is submitted
       })
     }
     
