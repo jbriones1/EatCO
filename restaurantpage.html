@@ -91,6 +91,10 @@
     div.review p {
       float: right;
     }
+    .review-box {
+      display: flex;
+      text-align: center;
+    }
   </style>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -137,15 +141,15 @@
       
       <ul>
         <li id="name">Restaurant Name</li>
-        <li>Burgers</li>
-        <li>$$$</li>
-        <li>Phone #</li>
-        <li>Address</li>
+        <li id="type">Restaurant Type</li>
+        <li id="price">$$$</li>
+        <li id="phone-number">Phone #</li>
+        <li id="address">Address</li>
         
       </ul>
       <div class ="rating">
         <img class="rating" src="images/leaf-rating.png" alt="leaf rating image">
-        <p>#.#</p>
+        <p><span id="rating-number">#</span>/5</p>
       </div>
     </div>
   </div>
@@ -157,7 +161,7 @@
   </div>
   
   <div id="about" class="info">
-    <h3>Hello</h3>
+    <h3 id="description">Hello</h3>
   </div>
   
   <div id="takeOut" class="info" style="display:none">
@@ -169,15 +173,40 @@
   </div>
   <div id="reviews">
     <h3>Reviews</h3>
-    <div class="review">
-      <img src="images/burger.png">
-      <p>This restaurant fucking sucks wtf!</p>
+    <div id="review-section">
+      <div class="review-box">
+        <form> 
+          <div>
+            <label> Leave a review </label>
+            <textarea id="review-textarea"></textarea>
+            <button type="button" id="send-review" class="tabButton" onclick="submitReview"> Leave review </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
     
   
-  <script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCo-LlpYtYvJMyMeX8gZ641jH_QD7iEHXk",
+      authDomain: "comp1930-app.firebaseapp.com",
+      databaseURL: "https://comp1930-app.firebaseio.com",
+      projectId: "comp1930-app",
+      storageBucket: "comp1930-app.appspot.com",
+      messagingSenderId: "862102020646",
+      appId: "1:862102020646:web:fae4e0f72f0f01df81fce7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -189,6 +218,72 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
   <script>
+    var restaurant = db.collection("Restaurants");
+
+    // ------------------------------
+    // ------ Restaurant Info  ------
+    // ------------------------------
+    function loadRestoInfo() {
+      restaurant.get()
+        .then(function(snap) {
+        snap.forEach(function(doc) {
+          var n = doc.data().Name;
+          var desc = doc.data().description;
+          var addr = doc.data().address;
+          var phone = doc.data().phoneNumber;
+          var price = doc.data().price;
+          var rating = doc.data().rating;
+          var type = doc.data().type;
+          
+          $("#name").html(n);
+          $("#address").html(addr);
+          $("#description").html(desc);
+          $("#phone-number").html(phone);
+          $("#price").html(price);
+          $("#rating-number").html(rating);
+          $("#type").html(type);
+        })
+      });
+    }
+    
+    
+    // ------------------------------
+    // ------ Writing a review ------
+    // ------------------------------
+    // Grabs the review section
+    var reviews = restaurant.doc("z6jMLnApFK6V6cKASIBm").collection("Reviews");
+    var reviewSection = document.getElementById("review-section");
+    function loadReviews() { // function to load reviews to the page
+      reviews.get() // grabs the docs from the reviews docs from the "Reviews" collection
+        .then(function(snap) {
+        snap.forEach(function(doc) { // goes through each document
+          let r = doc.data().review; // grabs the review portion
+          
+          // creates a bunch of paragraphs that list out all of the reviews.
+          let para = document.createElement("div");
+          para.setAttribute("id", r);
+          reviewSection.appendChild(para);
+          let node = document.createTextNode(r); 
+          para.appendChild(node);
+        })
+      });
+    }
+    document.getElementById("send-review").addEventListener("click", submitReview); // attaches a click listener to the submit button
+    
+    function submitReview(e) { // function to write a review to the restaurant
+      var reviewText = document.getElementById("review-textarea").value; // text field where the review is typed
+      
+      reviews.doc().set( {
+        review: reviewText, // creates a doc that has a review field that stores what the review is
+      }).then(function() { 
+        let para = document.createElement("div"); 
+        reviewSection.appendChild(para); 
+        let node = document.createTextNode(reviewText); 
+        para.appendChild(node); // creates a paragraph of the review onto the webpage
+        reviewText.value = " "; // supposed to set the textfield to nothing after review is submitted
+      })
+    }
+    
     function openTab(tabName) {
       var i;
       var x = document.getElementsByClassName("info");
@@ -197,6 +292,9 @@
       }
       document.getElementById(tabName).style.display = "block";
     }
+    
+    loadRestoInfo();
+    loadReviews();
   </script>
 </body>
 

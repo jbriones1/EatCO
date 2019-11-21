@@ -275,7 +275,6 @@
       
       reviews.doc().set( {
         review: reviewText, // creates a doc that has a review field that stores what the review is
-        timestamp: db.FieldValue.serverTimestamp() // grabs the server timestamp
       }).then(function() { 
         let para = document.createElement("div"); 
         reviewSection.appendChild(para); 
