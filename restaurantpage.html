@@ -218,15 +218,16 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
   <script>
-    var restaurant = db.collection("Restaurants");
+    var queryString = decodeURIComponent(window.location.search);
+    var queries = queryString.split("?");
+    var restoId = queries[1];
+    var restaurant = db.collection("Restaurants").doc(restoId);
 
     // ------------------------------
     // ------ Restaurant Info  ------
     // ------------------------------
     function loadRestoInfo() {
-      restaurant.get()
-        .then(function(snap) {
-        snap.forEach(function(doc) {
+      restaurant.get().then(function(doc) {
           var n = doc.data().Name;
           var desc = doc.data().description;
           var addr = doc.data().address;
@@ -234,7 +235,7 @@
           var price = doc.data().price;
           var rating = doc.data().rating;
           var type = doc.data().type;
-          
+
           $("#name").html(n);
           $("#address").html(addr);
           $("#description").html(desc);
@@ -242,16 +243,14 @@
           $("#price").html(price);
           $("#rating-number").html(rating);
           $("#type").html(type);
-        })
       });
-    }
-    
+    } 
     
     // ------------------------------
     // ------ Writing a review ------
     // ------------------------------
     // Grabs the review section
-    var reviews = restaurant.doc("z6jMLnApFK6V6cKASIBm").collection("Reviews");
+    var reviews = restaurant.collection("Reviews");
     var reviewSection = document.getElementById("review-section");
     function loadReviews() { // function to load reviews to the page
       reviews.get() // grabs the docs from the reviews docs from the "Reviews" collection
