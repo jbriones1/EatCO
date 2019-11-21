@@ -13,10 +13,6 @@
 
     body {
       font-family: "Roboto";
-      /* background-image: url(images/background-home3blurred.jpg); */
-      background-image: url(images/landingpage_background.jpg);
-      background-size: cover;
-      background-repeat: no-repeat;
       height: 100vh;
     }
 
@@ -158,6 +154,11 @@
   firebase.initializeApp(firebaseConfig);
 
 	</script>	
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
   </script>
   
   <script>
@@ -172,19 +173,43 @@
   <script type="text/javascript" type="user_id.js"></script>
 
   <script>
-    var user = firebase.currentUser();
-    
-    console.log(firebase.auth());
-    firebase.auth().onAuthStateChanged(function (user) {
-      if (user) {
-        console.log(user.displayName);
-        var userId = db.collection("users").doc(user.uid);
-      } else {
-        console.log("No user.");
-      }
+   firebase.auth().onAuthStateChanged(function (user) {
+     if (user) {
+       console.log(user.displayName);
+       document.getElementById("test").innerHTML = user.displayName;
+       user.once('value', function (snapshot) {
+         if (snapshot.exists()) {
+           console.log('exists');
+         } else {
+           db.collection("users").add({
+             "name": user.displayName,
+             "email": user.email,
+             "userid": user.uid});
+         }
+       });
+     } else {
+       console.log(user);
+     }
     });
 
-
+    
+  
+//    if (user) {
+//      function createUser() {
+//        firebase.auth().onAuthStateChanged(function (user) {
+//          console.log("working");
+//          db.collection("users").doc("user.id").set({
+//            "name": user.displayName,
+//            "email": user.email,
+//          }, {
+//            merge: true});
+//        });
+//      }
+//      console.log(user);
+//      createUser();
+//    } else {
+//      console.log("No user detected.");
+//    }
   </script>
 </body>
 

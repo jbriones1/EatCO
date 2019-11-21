@@ -141,15 +141,15 @@
       
       <ul>
         <li id="name">Restaurant Name</li>
-        <li>Burgers</li>
-        <li>$$$</li>
-        <li>Phone #</li>
-        <li>Address</li>
+        <li id="type">Restaurant Type</li>
+        <li id="price">$$$</li>
+        <li id="phone-number">Phone #</li>
+        <li id="address">Address</li>
         
       </ul>
       <div class ="rating">
         <img class="rating" src="images/leaf-rating.png" alt="leaf rating image">
-        <p>#.#</p>
+        <p><span id="rating-number">#</span>/5</p>
       </div>
     </div>
   </div>
@@ -161,7 +161,7 @@
   </div>
   
   <div id="about" class="info">
-    <h3>Hello</h3>
+    <h3 id="description">Hello</h3>
   </div>
   
   <div id="takeOut" class="info" style="display:none">
@@ -173,13 +173,13 @@
   </div>
   <div id="reviews">
     <h3>Reviews</h3>
-    <div class="review">
+    <div id="review-section">
       <div class="review-box">
-        <p> Test Review </p>
         <form> 
           <div>
-            <label> Review </label>
+            <label> Leave a review </label>
             <textarea id="review-textarea"></textarea>
+            <button type="button" id="send-review" class="tabButton" onclick="submitReview"> Leave review </button>
           </div>
         </form>
       </div>
@@ -187,8 +187,26 @@
   </div>
     
   
-  <script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCo-LlpYtYvJMyMeX8gZ641jH_QD7iEHXk",
+      authDomain: "comp1930-app.firebaseapp.com",
+      databaseURL: "https://comp1930-app.firebaseio.com",
+      projectId: "comp1930-app",
+      storageBucket: "comp1930-app.appspot.com",
+      messagingSenderId: "862102020646",
+      appId: "1:862102020646:web:fae4e0f72f0f01df81fce7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -200,6 +218,71 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
   </script>
   <script>
+    var restaurant = db.collection("Restaurants");
+    var reviews = restaurant.doc("z6jMLnApFK6V6cKASIBm").collection("Reviews");
+    // ------------------------------
+    // ------ Restaurant Info  ------
+    // ------------------------------
+    function loadRestoInfo() {
+      restaurant.get()
+        .then(function(snap) {
+        snap.forEach(function(doc) {
+          var n = doc.data().Name;
+          var desc = doc.data().description;
+          var addr = doc.data().address;
+          var phone = doc.data().phoneNumber;
+          var price = doc.data().price;
+          var rating = doc.data().rating;
+          var type = doc.data().type;
+          
+          $("#name").html(n);
+          $("#address").html(addr);
+          $("#description").html(desc);
+          $("#phone-number").html(phone);
+          $("#price").html(price);
+          $("#rating-number").html(rating);
+          $("#type").html(type);
+        })
+      });
+    }
+    
+    
+    // ------------------------------
+    // ------ Writing a review ------
+    // ------------------------------
+    var reviewSection = document.getElementById("review-section");
+    function loadReviews() {
+      reviews.get()
+        .then(function(snap) {
+        snap.forEach(function(doc) {
+          let r = doc.data().review;
+          console.log(r);
+          
+          let para = document.createElement("div");
+          para.setAttribute("id", r);
+          reviewSection.appendChild(para);
+          let node = document.createTextNode(r);
+          para.appendChild(node);
+        })
+      });
+    }
+    document.getElementById("send-review").addEventListener("click", submitReview);
+    
+    function submitReview(e) {
+      var reviewText = document.getElementById("review-textarea").value;
+      
+      reviews.doc().set( {
+        review: reviewText
+      }).then(function() { 
+        console.log("Sent " + reviewText);
+        let para = document.createElement("div");
+        reviewSection.appendChild(para);
+        let node = document.createTextNode(reviewText);
+        para.appendChild(node);
+        reviewText.value = "";
+      })
+    }
+    
     function openTab(tabName) {
       var i;
       var x = document.getElementsByClassName("info");
@@ -208,6 +291,9 @@
       }
       document.getElementById(tabName).style.display = "block";
     }
+    
+    loadRestoInfo();
+    loadReviews();
   </script>
 </body>
 
