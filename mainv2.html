@@ -170,10 +170,13 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <script type="text/javascript" type="user_id.js"></script>
+  <!-- <script type="text/javascript" type="user_id.js"></script> -->
 
   <script>
+console.log("inside mainv2.html");
+console.log(firebase.auth().currentUser);
    firebase.auth().onAuthStateChanged(function (user) {
+    console.log(user.displayName + " working");
      if (user) {
        console.log(user.displayName);
        document.getElementById("test").innerHTML = user.displayName;

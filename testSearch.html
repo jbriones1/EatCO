@@ -7,21 +7,46 @@
   
   <body>
     <form id="restaurant-options">
-      <button id="jons-grill">Jon's grill</button>
+      <button id="z6jMLnApFK6V6cKASIBm">Jon's grill</button>
       <button id="brians-big-brain-bar" value="j6ZVZKZRYkRNwCegD4fb">Brian's Big Brain Bar</button>
     </form>
     
     <!----------------->
     <!---- Scripts ---->
     <!----------------->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  
     <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyCo-LlpYtYvJMyMeX8gZ641jH_QD7iEHXk",
+        authDomain: "comp1930-app.firebaseapp.com",
+        databaseURL: "https://comp1930-app.firebaseio.com",
+        projectId: "comp1930-app",
+        storageBucket: "comp1930-app.appspot.com",
+        messagingSenderId: "862102020646",
+        appId: "1:862102020646:web:fae4e0f72f0f01df81fce7"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      var db = firebase.firestore();
+    </script>
+
+    <script>
+      // Button functionality
+      var buttons = document.getElementsByTagName("button");
+      var buttonsCount = buttons.length;
+
       document.getElementById("restaurant-options").addEventListener("submit", processForm);
       function processForm(e) {
         e.preventDefault();
-        var jonsGrill = document.getElementById("jons-grill").value;
-        var briansBar = document.getElementById("brians-big-brain-bar").value;
-        
-        localStorage.setItem("restaurantName", briansBar);
+        var jonsGrill = document.getElementById("z6jMLnApFK6V6cKASIBm").id;
+        var briansBar = document.getElementById("brians-big-brain-bar").id;
+
         console.log("Restaurant name" + jonsGrill);
       }
     </script>
