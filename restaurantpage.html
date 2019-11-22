@@ -11,9 +11,22 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <style type="text/css">
+    
     a {
       letter-spacing: 0.05em;
       word-spacing: 0em;
+    }
+    #navBarToggler:visited {
+      box-shadow: 0px 0px 10px 1px #2dff62 !important;
+    }
+    #searchButton:hover {
+      background-color: white;
+    }
+    #searchBar {
+      border: none;
+    }
+    #searchBar:focus {
+      border: 3px solid #35cc49;
     }
     #banner {
       margin: 5px;
@@ -33,6 +46,7 @@
       align-items: center;
       align-content: center;
       margin: 6% 0;
+      
     }
     #logo {
       width: 100px;
@@ -65,7 +79,8 @@
     }
     .tabButton {
       border: none;
-      background-color: #3fbf43;
+      background: rgb(255,255,255);
+      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(122,255,135,1) 0%, rgba(0,120,14,1) 100%); !important; 
       color: white;
       margin: 3px;     
       width: 30%;
@@ -83,6 +98,7 @@
     }
     #reviews h3 {
       text-align: center;
+      padding: 0.5em;
     }
     div.review img {
       width: 50px;
@@ -91,10 +107,24 @@
     div.review p {
       float: right;
     }
-    .review-box {
-      display: flex;
-      text-align: center;
+    #review-section {
+      padding: 2em;
     }
+    #reviewInput {
+      display: block;
+    }
+    #label {
+    }
+    #review-textarea {
+      width: 100%;
+      min-height: 200px;
+    }
+    #reviewButton {
+      text-align: center;
+      margin: 0 auto;
+      width: 400px
+    }
+    
   </style>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -103,34 +133,36 @@
   
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #3fbf43">
-    <a class="navbar-brand text-light" href="#">
-      <img src="images/logo_512_white.png" width="30" height="30" class="d-inline-block align-top" alt="">
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(122,255,135,1) 0%, rgba(0,120,14,1) 100%); !important;">
+    <a class="navbar-brand text-success" style="line-height: 2em;  font-size: 18pt;  color: white !important;" href="#">
+      <img style="margin-right: 5px;"src="images/logo_512_white.png" width="50" height="50" class="d-inline-block align-top" alt="">
       Green Eating App
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button id="navBarToggler"class="navbar-toggler" style="background-color: white; box-shadow: 0px 0px 4px 0.1px white;"type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="navbar-toggler-icon" style="color: black !important;"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link text-light" style="font-size: 16pt; color: white !important;" href="#">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">My Account</a>
+          <a class="nav-link text-light" style="font-size: 16pt; color: white !important;" href="#">My Account</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">Leave A Review</a>
+          <a class="nav-link text-light" style="font-size: 16pt; color: white !important;" href="#">Leave A Review</a>
         </li>
       </ul>
     </div>
   </nav>
 
   <div id="search" class="input-group">
-    <input type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
+    <input id="searchBar" type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
     <div class="input-group-append">
-      <button class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
+      <button id="searchButton" style="background: rgb(255,255,255);
+background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(122,255,135,1) 0%, rgba(0,120,14,1) 100%); !important;" class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
     </div>
   </div>
   <div id="banner">
@@ -177,9 +209,11 @@
       <div class="review-box">
         <form> 
           <div>
-            <label> Leave a review </label>
+            <span id="label">Leave a Review!</span>
             <textarea id="review-textarea"></textarea>
-            <button type="button" id="send-review" class="tabButton" onclick="submitReview"> Leave review </button>
+            <div id="reviewButton">
+              <button type="button" id="send-review" class="tabButton" onclick="submitReview"> Leave Review </button>
+            </div>
           </div>
         </form>
       </div>
