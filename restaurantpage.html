@@ -11,13 +11,23 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <style type="text/css">
-    
+    @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+    body {
+      position: absolute;
+      width: auto;
+      height: auto;
+      font-family: 'Lato', sans-serif !important;
+      
+    }
+    nav {
+      box-shadow: 0px 0px 4px 0px black;
+    }
     a {
       letter-spacing: 0.05em;
       word-spacing: 0em;
     }
     #navBarToggler:visited {
-      box-shadow: 0px 0px 10px 1px #2dff62 !important;
+      box-shadow: 0px 0px 4px 0px #2dff62 !important;
     }
     #searchButton:hover {
       background-color: white;
@@ -29,23 +39,27 @@
       border: 3px solid #35cc49;
     }
     #banner {
-      margin: 5px;
+      margin: auto 4%;
     }
     #banner img {
       width: 100%;
       max-height: 350px;
+      box-shadow: 0px 0px 4px 0px #3fa836;
     }
     #search {
       width: 92%;
       margin: 20px auto;
-      box-shadow: 0px 0px 4px black;
+      box-shadow: 0px 0px 4px #3fa836;
     }
     #basicInfo {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       align-content: center;
-      margin: 6% 0;
+      box-shadow: 0px 2px 4px 0px #3fbf43;
+      padding: 2em 1em;
+      margin: auto 4%;
+      margin-bottom: 4%;
       
     }
     #logo {
@@ -88,25 +102,61 @@
       font-size: 10pt;
     }
     #buttonContainer {
+      
       padding: 1em 0;
       text-align: center;
-      background-color: lightgrey;
+      background-color: white;
+      
+    }
+    #infoContainer {
+      margin: 0 4%;
+      box-shadow: 0px 2px 4px 0px #3fbf43;
+    }
+    #about {
+      margin: 5%;
+      padding: 2em 0;
+    }
+    #takeOut {
+      padding: 2em 0;
+    }
+    #takeOut table {
+      margin: 5% auto;
+      color: #3fa836
+    }
+    #takeOut table td:nth-child(3n) {
+      padding-left: 2em;
+    }
+    #takeOut table td:nth-child(3n + 1) {
+      color: #3fa836
+    } 
+    span.togo {
+      padding-left: 1em;
     }
     #reviews {
       margin-top: 10%;
-      background-color: lightgrey;
+      background-color: white;
     }
+    div.reviewContainer {
+      margin: 0 4%;
+      box-shadow: 0px 2px 4px 0px #3fbf43;
+    }
+    div.reviewContainer span.reviewer {
+      display: block;
+      padding-top: 1em;
+      padding-left: 1em;
+    }
+    div.reviewContainer span.timeStamp {
+      padding-left: 1em;
+    }
+    div.reviewContainer p {
+      padding: 2em;
+    }
+    
     #reviews h3 {
       text-align: center;
       padding: 0.5em;
     }
-    div.review img {
-      width: 50px;
-      border: 1px solid #3fbf43; 
-    }
-    div.review p {
-      float: right;
-    }
+    
     #review-section {
       padding: 2em;
     }
@@ -185,7 +235,7 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(122,255,135,1) 
       </div>
     </div>
   </div>
-  
+  <div id="infoContainer">
   <div id="buttonContainer">
     <button class="tabButton" onclick="openTab('about')">About</button>
     <button class="tabButton" onclick="openTab('takeOut')">Materials</button>
@@ -193,18 +243,51 @@ background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(122,255,135,1) 
   </div>
   
   <div id="about" class="info">
-    <h3 id="description">Hello</h3>
+    <p>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.</p>
   </div>
   
   <div id="takeOut" class="info" style="display:none">
-    <h2>Take out materials</h2>
+    
+    <table>
+      <tr>
+        <td><i class="fas fa-utensils"></i></td>
+        <td><span class='togo'>Utensils</span></td>
+        <td>Plastic</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-box"></i></td>
+        <td><span class='togo'>Containers</span></td>
+        <td>Styrofoam</td>
+      </tr>
+      <tr>
+        <td><i class="fas fa-shopping-bag"></i></td>
+        <td><span class='togo'>Bags</span></td>
+        <td>Plastic</td>
+      </tr>
+    </table>
+    
+    
+    
+    
+    
   </div>
   
   <div id="foodSource" class="info" style="display:none">
     <h2>Food Source</h2>
   </div>
+  </div>
   <div id="reviews">
     <h3>Reviews</h3>
+    <div class='reviewContainer'>
+      <span class='reviewer'>Brian Li</span>
+      <span class='timeStamp'>2019-11-23</span>
+      <p class='review'>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.</p>
+    </div>
+    <div class='reviewContainer'>
+      <span class='reviewer'>Brian Li</span>
+      <span class='timeStamp'>2019-11-23</span>
+      <p class='review'>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.</p>
+    </div>
     <div id="review-section">
       <div class="review-box">
         <form> 
