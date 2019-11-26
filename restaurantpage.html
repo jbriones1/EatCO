@@ -10,186 +10,24 @@
 
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <style type="text/css">
-    @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
-    body {
-      position: absolute;
-      width: auto;
-      height: auto;
-      font-family: 'Lato', sans-serif !important;
-      
-    }
-    nav {
-      box-shadow: 0px 0px 4px 0px black;
-    }
-    a {
-      letter-spacing: 0.05em;
-      word-spacing: 0em;
-    }
-    #navBarToggler:visited {
-      box-shadow: 0px 0px 4px 0px #2dff62 !important;
-    }
-    #searchButton:hover {
-      background-color: white;
-    }
-    #searchBar {
-      border: none;
-    }
-    #searchBar:focus {
-      border: 2px solid #35cc49;
-    }
-    #banner {
-      margin: auto 4%;
-    }
-    #banner img {
-      width: 100%;
-      max-height: 350px;
-      box-shadow: 0px 0px 4px 0px #48b574;
-    }
-    #search {
-      width: 92%;
-      margin: 20px auto;
-      box-shadow: 0px 0px 4px #48b574;
-    }
-    #basicInfo {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      align-content: center;
-      box-shadow: 0px 2px 4px 0px #48b574;
-      padding: 2em 1em;
-      margin: auto 4%;
-      margin-bottom: 4%;
-      
-    }
-    #logo {
-      width: 100px;
-      height: 100px;
-      border: 1px solid black;
-      margin-left: 3%;
-      margin-right: 0 auto;
-    }
-    ul {
-      list-style: none;
-      font-size: 10pt;
-    }
-    #name {
-      font-size: 15pt;
-      font-weight: bold;
-    }
-    div.rating {
-      text-align: right;
-      float: right;
-      margin-left: auto;
-      margin-right: 10%;
-    }
-    img.rating {
-      width: 50px;
-      height: 50px;
-    }
-    div.rating p {
-      display: flex;
-      margin-left: 30%;
-    }
-    .tabButton {
-      border: none;
-      background: rgb(255,255,255);
-      background-color: #48b574 !important; 
-      color: white;
-      margin: 3px;     
-      width: 30%;
-      padding: 1em 1em;
-      font-size: 10pt;
-    }
-    #buttonContainer {
-      
-      padding: 1em 0;
-      text-align: center;
-      background-color: white;
-      
-    }
-    #infoContainer {
-      margin: 0 4%;
-      box-shadow: 0px 2px 4px 0px #48b574;
-    }
-    #about {
-      margin: 5%;
-      padding: 2em 0;
-    }
-    #takeOut {
-      padding: 2em 0;
-    }
-    #takeOut table {
-      margin: 5% auto;
-    }
-    #takeOut table td:nth-child(3n) {
-      padding-left: 2em;
-    }
-    #takeOut table td:nth-child(3n + 1) {
-      color: #48b574
-    } 
-    span.togo {
-      padding-left: 1em;
-    }
-    #reviews {
-      margin-top: 10%;
-      background-color: white;
-    }
-    div.reviewContainer {
-      margin: 0 4%;
-      box-shadow: 0px 2px 4px 0px #48b574;
-    }
-    div.reviewContainer span.reviewer {
-      display: block;
-      padding-top: 1em;
-      padding-left: 1em;
-    }
-    div.reviewContainer span.timeStamp {
-      padding-left: 1em;
-    }
-    div.reviewContainer p {
-      padding: 2em;
-    }
-    
-    #reviews h3 {
-      text-align: center;
-      padding: 0.5em;
-    }
-    
-    #review-section {
-      padding: 2em;
-    }
-    #reviewInput {
-      display: block;
-    }
-    #label {
-    }
-    #review-textarea {
-      width: 100%;
-      min-height: 200px;
-      box-shadow: 0px 2px 4px 1px #48b574;
-    }
-    #reviewButton {
-      text-align: center;
-      margin: 0 auto;
-      width: 400px
-    }
-    
-  </style>
+  <link rel='stylesheet' href='./css/restaurantpage.css' type='text/css'>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-  
+
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #48b574 !important; font-size: 18pt;">
-    <a class="navbar-brand text-light" style="line-height: 1.8em !important;"href="#">
-      <img src="images/logo_512_white.png" style="margin-right: 3% !important;" width="40" height="40" class="d-inline-block align-top" alt="">
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top"
+    style="background-color: #48b574 !important; font-size: 18pt;">
+    <a class="navbar-brand text-light" style="line-height: 1.8em !important;" href="#">
+      <img src="images/logo_512_white.png" style="margin-right: 3% !important;" width="40" height="40"
+        class="d-inline-block align-top" alt="">
       Green Eating App
     </a>
-    <button class="navbar-toggler" style="background-color: white !important;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" style="background-color: white !important;" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -205,12 +43,14 @@
         </li>
       </ul>
     </div>
-    </nav>
+  </nav>
 
   <div id="search" class="input-group">
-    <input id="searchBar" type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
+    <input id="searchBar" type="text" class="form-control" placeholder="Search" aria-label=""
+      aria-describedby="basic-addon1">
     <div class="input-group-append">
-      <button id="searchButton" style="background-color: #48b574 !important;" class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
+      <button id="searchButton" style="background-color: #48b574 !important;" class="btn btn-success" type="button"><i
+          class="fas fa-search"></i></button>
     </div>
   </div>
   <div id="banner">
@@ -218,77 +58,89 @@
   </div>
   <div id="content">
     <div id="basicInfo">
-      
+
       <ul>
         <li id="name">Restaurant Name</li>
         <li id="type">Restaurant Type</li>
         <li id="price">$$$</li>
         <li id="phone-number">Phone #</li>
         <li id="address">Address</li>
-        
+
       </ul>
-      <div class ="rating">
+      <div class="rating">
         <img class="rating" src="images/leaf-rating.png" alt="leaf rating image">
         <p><span id="rating-number">#</span>/5</p>
       </div>
     </div>
   </div>
   <div id="infoContainer">
-  <div id="buttonContainer">
-    <button class="tabButton" onclick="openTab('about')">About</button>
-    <button class="tabButton" onclick="openTab('takeOut')">Materials</button>
-    <button class="tabButton" onclick="openTab('foodSource')">Food Sources</button>
-  </div>
-  
-  <div id="about" class="info">
-    <p>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.</p>
-  </div>
-  
-  <div id="takeOut" class="info" style="display:none">
-    
-    <table>
-      <tr>
-        <td><i class="fas fa-utensils"></i></td>
-        <td><span class='togo'>Utensils</span></td>
-        <td>Plastic</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-box"></i></td>
-        <td><span class='togo'>Containers</span></td>
-        <td>Styrofoam</td>
-      </tr>
-      <tr>
-        <td><i class="fas fa-shopping-bag"></i></td>
-        <td><span class='togo'>Bags</span></td>
-        <td>Plastic</td>
-      </tr>
-    </table>
-    
-    
-    
-    
-    
-  </div>
-  
-  <div id="foodSource" class="info" style="display:none">
-    <h2>Food Source</h2>
-  </div>
+    <div id="buttonContainer">
+      <button class="tabButton" onclick="openTab('about')">About</button>
+      <button class="tabButton" onclick="openTab('takeOut')">Materials</button>
+      <button class="tabButton" onclick="openTab('foodSource')">Food Sources</button>
+    </div>
+
+    <div id="about" class="info">
+      <p>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the
+        embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you
+        click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way
+        to help you prove your point. When you click Online Video, you can paste in the embed code for the video you
+        want to add.</p>
+    </div>
+
+    <div id="takeOut" class="info" style="display:none">
+
+      <table>
+        <tr>
+          <td><i class="fas fa-utensils"></i></td>
+          <td><span class='togo'>Utensils</span></td>
+          <td>Plastic</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-box"></i></td>
+          <td><span class='togo'>Containers</span></td>
+          <td>Styrofoam</td>
+        </tr>
+        <tr>
+          <td><i class="fas fa-shopping-bag"></i></td>
+          <td><span class='togo'>Bags</span></td>
+          <td>Plastic</td>
+        </tr>
+      </table>
+
+
+
+
+
+    </div>
+
+    <div id="foodSource" class="info" style="display:none">
+      <h2>Food Source</h2>
+    </div>
   </div>
   <div id="reviews">
     <h3>Reviews</h3>
     <div class='reviewContainer'>
       <span class='reviewer'>Brian Li</span>
       <span class='timeStamp'>2019-11-23</span>
-      <p class='review'>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.</p>
+      <p class='review'>Video provides a powerful way to help you prove your point. When you click Online Video, you can
+        paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your
+        point. When you click Online Video, you can paste in the embed code for the video you want to add. Video
+        provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed
+        code for the video you want to add.</p>
     </div>
     <div class='reviewContainer'>
       <span class='reviewer'>Brian Li</span>
       <span class='timeStamp'>2019-11-23</span>
-      <p class='review'>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed code for the video you want to add.</p>
+      <p class='review'>Video provides a powerful way to help you prove your point. When you click Online Video, you can
+        paste in the embed code for the video you want to add. Video provides a powerful way to help you prove your
+        point. When you click Online Video, you can paste in the embed code for the video you want to add. Video
+        provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed
+        code for the video you want to add.</p>
     </div>
     <div id="review-section">
       <div class="review-box">
-        <form> 
+        <form>
           <div>
             <span id="label">Leave a Review!</span>
             <textarea id="review-textarea"></textarea>
@@ -300,8 +152,8 @@
       </div>
     </div>
   </div>
-    
-  
+
+
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
@@ -342,62 +194,64 @@
     // ------ Restaurant Info  ------
     // ------------------------------
     function loadRestoInfo() {
-      restaurant.get().then(function(doc) {
-          var n = doc.data().Name;
-          var desc = doc.data().description;
-          var addr = doc.data().address;
-          var phone = doc.data().phoneNumber;
-          var price = doc.data().price;
-          var rating = doc.data().rating;
-          var type = doc.data().type;
+      restaurant.get().then(function (doc) {
+        var n = doc.data().Name;
+        var desc = doc.data().description;
+        var addr = doc.data().address;
+        var phone = doc.data().phoneNumber;
+        var price = doc.data().price;
+        var rating = doc.data().rating;
+        var type = doc.data().type;
 
-          $("#name").html(n);
-          $("#address").html(addr);
-          $("#description").html(desc);
-          $("#phone-number").html(phone);
-          $("#price").html(price);
-          $("#rating-number").html(rating);
-          $("#type").html(type);
+        $("#name").html(n);
+        $("#address").html(addr);
+        $("#description").html(desc);
+        $("#phone-number").html(phone);
+        $("#price").html(price);
+        $("#rating-number").html(rating);
+        $("#type").html(type);
       });
-    } 
-    
+    }
+
     // ------------------------------
     // ------ Writing a review ------
     // ------------------------------
     // Grabs the review section
     var reviews = restaurant.collection("Reviews");
     var reviewSection = document.getElementById("review-section");
+
     function loadReviews() { // function to load reviews to the page
       reviews.get() // grabs the docs from the reviews docs from the "Reviews" collection
-        .then(function(snap) {
-        snap.forEach(function(doc) { // goes through each document
-          let r = doc.data().review; // grabs the review portion
-          
-          // creates a bunch of paragraphs that list out all of the reviews.
-          let para = document.createElement("div");
-          para.setAttribute("id", r);
-          reviewSection.appendChild(para);
-          let node = document.createTextNode(r); 
-          para.appendChild(node);
-        })
-      });
+        .then(function (snap) {
+          snap.forEach(function (doc) { // goes through each document
+            let r = doc.data().review; // grabs the review portion
+
+            // creates a bunch of paragraphs that list out all of the reviews.
+            let para = document.createElement("div");
+            para.setAttribute("id", r);
+            reviewSection.appendChild(para);
+            let node = document.createTextNode(r);
+            para.appendChild(node);
+          })
+        });
     }
-    document.getElementById("send-review").addEventListener("click", submitReview); // attaches a click listener to the submit button
-    
+    document.getElementById("send-review").addEventListener("click",
+    submitReview); // attaches a click listener to the submit button
+
     function submitReview(e) { // function to write a review to the restaurant
       var reviewText = document.getElementById("review-textarea").value; // text field where the review is typed
-      
-      reviews.doc().set( {
+
+      reviews.doc().set({
         review: reviewText, // creates a doc that has a review field that stores what the review is
-      }).then(function() { 
-        let para = document.createElement("div"); 
-        reviewSection.appendChild(para); 
-        let node = document.createTextNode(reviewText); 
+      }).then(function () {
+        let para = document.createElement("div");
+        reviewSection.appendChild(para);
+        let node = document.createTextNode(reviewText);
         para.appendChild(node); // creates a paragraph of the review onto the webpage
         reviewText.value = " "; // supposed to set the textfield to nothing after review is submitted
       })
     }
-    
+
     function openTab(tabName) {
       var i;
       var x = document.getElementsByClassName("info");
@@ -406,7 +260,7 @@
       }
       document.getElementById(tabName).style.display = "block";
     }
-    
+
     loadRestoInfo();
     loadReviews();
   </script>

@@ -1,16 +1,16 @@
-
 @import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 body {
-background-image: url('../images/landingpg-bg.jpg');
+  background-image: url('../images/landingpg-bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-        
 
-        
-        font-family: 'Lato', sans-serif !important;
-      }
-      
+
+
+  font-family: 'Lato', sans-serif !important;
+}
+
 #logIn {
   background-color: #48b574;
   display: inline;
@@ -25,18 +25,18 @@ background-image: url('../images/landingpg-bg.jpg');
 #logIn:hover {
   box-shadow: 0px 0px 4px 1px white;
 }
-      
-      
-      #midbar {
-        text-align: center;
-        margin-top: 150px;
-      }
-      
-      #midbar > p {
-        text-align: center;
-        font-family: "Robot", sans-serif;
-        font-size: 50pt;
-        color: white;
-  
-        margin-bottom: 10%;
-        }
+
+
+#midbar {
+  text-align: center;
+  margin-top: 150px;
+}
+
+#midbar>p {
+  text-align: center;
+  font-family: "Robot", sans-serif;
+  font-size: 50pt;
+  color: white;
+
+  margin-bottom: 10%;
+}

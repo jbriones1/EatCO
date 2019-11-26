@@ -4,9 +4,9 @@
 	<title>Login Page</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
 	<link rel="stylesheet" href="./css/login.css">
-  	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+	<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
 	<script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
 
 	<!-- Add Firebase products that you want to use -->
@@ -19,31 +19,30 @@
 </head>
 
 <body>
-    <div id="textContainer">
-    <h1 id="logIn">AppName</h1>
-  </div>
+	<div id="textContainer">
+		<h1 id="logIn">AppName</h1>
+	</div>
 	<div id="firebaseui-auth-container"></div>
 	<div id="loader">Loading...</div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 	<script>
-    // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCo-LlpYtYvJMyMeX8gZ641jH_QD7iEHXk",
-    authDomain: "comp1930-app.firebaseapp.com",
-    databaseURL: "https://comp1930-app.firebaseio.com",
-    projectId: "comp1930-app",
-    storageBucket: "comp1930-app.appspot.com",
-    messagingSenderId: "862102020646",
-    appId: "1:862102020646:web:fae4e0f72f0f01df81fce7"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-	</script>	
+		// Your web app's Firebase configuration
+		var firebaseConfig = {
+			apiKey: "AIzaSyCo-LlpYtYvJMyMeX8gZ641jH_QD7iEHXk",
+			authDomain: "comp1930-app.firebaseapp.com",
+			databaseURL: "https://comp1930-app.firebaseio.com",
+			projectId: "comp1930-app",
+			storageBucket: "comp1930-app.appspot.com",
+			messagingSenderId: "862102020646",
+			appId: "1:862102020646:web:fae4e0f72f0f01df81fce7"
+		};
+		// Initialize Firebase
+		firebase.initializeApp(firebaseConfig);
+	</script>
 	<script>
 		// Initialize the FirebaseUI Widget using Firebase.
 		var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -63,7 +62,7 @@
 			},
 			// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
 			signInFlow: 'popup',
-			signInSuccessUrl: 'mainv2.html',
+			signInSuccessUrl: 'main.html',
 			signInOptions: [
 				// Leave the lines as is for the providers you want to offer your users.
 				// firebase.auth.GoogleAuthProvider.PROVIDER_ID,

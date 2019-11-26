@@ -1,118 +1,156 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>Main Page</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/"             title="Flaticon">www.flaticon.com -->
-    <style type="text/css">
-	   #pageContainer {
-		background-image: url(images/background-home2.jpg);
-        background-size: cover;
-        background-repeat: repeat-x;
-	  }
-      a {
-        letter-spacing: 0.05em;
-        word-spacing: 0em;
-      }
-      #welcomeText {
-        margin: 30px;
-        margin-bottom: 0;
-        color: black;
-        text-shadow: 1px 1px 2px green;
-      }
-      #orText {
-        margin: 50px;
-      }
-      h3 {
-        margin: 50px;
-        text-align: center;
-      }
-      #buttonContainer {
-        text-align: center;
-      }
-      .search-container {
-        margin: 30px;
-        margin-left: 35px;
-      }
-      .search-container button {
-        padding: 6px 10px;
-        margin-top: 8px;
-        font-size: 17px;
-        cursor: pointer;
-        width: 8%;
-		border: 1px solid green;
-		background: white;
-      }
-        input[type=text] {
-        padding: 6px;
-        margin-top: 8px;
-        font-size: 17px;
-        width: 85%;
-		border: 1px solid green;
-      }
-        .search-container button:hover {
-        box-shadow: 1px 1px 6px 2px green;
-      }
-      input[type=text]:focus {
-        box-shadow: 1px 1px 6px 2px green;
-        transition: 0.3s ease-in-out;
-      }
+
+<head>
+  <title>Main Page Prototype 2</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./css/mainv2.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <style type="text/css">
 
 
-    </style>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Main</title>
-  </head>
-  <body>
-    <div id="pageContainer">
-      <!-- Image and text -->
-      <nav class="navbar navbar-expand-lg bg-light navbar-light sticky-top">
-      <a class="navbar-brand" href="#">
-        <img src="images/logo_512_white.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Green Eating App
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">My Account</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Leave A Review</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-      <div id="welcomeText">
-        <h1>Welcome!</h1>
-      </div>
-      <div class="search-container">
-        <form action="">
-          <input type="text" placeholder="Search!" name="search">
-          <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-      </div>
-      <div id="orText">
-        <h3>Or:</h3>
-      </div>
-      <div id="buttonContainer">
-        <button type="button" class="btn btn-success">View Map</button>
-      </div>
+  </style>
+  <script src="https://kit.fontawesome.com/68565aa008.js" crossorigin="anonymous"></script>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Navbar Prototype</title>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top"
+    style="background-color: #48b574 !important; font-size: 18pt;">
+    <a class="navbar-brand text-light" style="line-height: 1.8em !important;" href="#">
+      <img src="images/logo_512_white.png" style="margin-right: 3% !important;" width="40" height="40"
+        class="d-inline-block align-top" alt="">
+      Green Eating App
+    </a>
+    <button class="navbar-toggler" style="background-color: white !important;" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul style="font-size: 13pt !important;" class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">My Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-light" href="#">Leave A Review</a>
+        </li>
+      </ul>
     </div>
-    
-    
-    
-    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+  </nav>
+  <h1 id="welcome">Welcome!</h1>
+  <div id="search" class="input-group">
+    <input type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
+    <div class="input-group-append">
+      <button style="background-color: #48b574;" class="btn btn-success" type="button"><i
+          class="fas fa-search"></i></button>
+    </div>
+  </div>
+  <h3 id="or">OR</h3>
+  <div id="mapButton">
+  <a id="viewMap" href="mapPage.html">View Map</a>
+  </div>
+
+  <!-- Firebase related things -->
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-firestore.js"></script>
+
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCo-LlpYtYvJMyMeX8gZ641jH_QD7iEHXk",
+      authDomain: "comp1930-app.firebaseapp.com",
+      databaseURL: "https://comp1930-app.firebaseio.com",
+      projectId: "comp1930-app",
+      storageBucket: "comp1930-app.appspot.com",
+      messagingSenderId: "862102020646",
+      appId: "1:862102020646:web:fae4e0f72f0f01df81fce7"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+
+  <script>
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+
+  <!-- <script type="text/javascript" type="user_id.js"></script> -->
+
+  <script>
+    console.log("inside mainv2.html");
+    console.log(firebase.auth().currentUser);
+    firebase.auth().onAuthStateChanged(function (user) {
+      console.log(user.displayName + " working");
+      if (user) {
+        console.log(user.displayName);
+        document.getElementById("test").innerHTML = user.displayName;
+        user.once('value', function (snapshot) {
+          if (snapshot.exists()) {
+            console.log('exists');
+          } else {
+            db.collection("users").add({
+              "name": user.displayName,
+              "email": user.email,
+              "userid": user.uid
+            });
+          }
+        });
+      } else {
+        console.log(user);
+      }
+    });
+
+
+
+    //    if (user) {
+    //      function createUser() {
+    //        firebase.auth().onAuthStateChanged(function (user) {
+    //          console.log("working");
+    //          db.collection("users").doc("user.id").set({
+    //            "name": user.displayName,
+    //            "email": user.email,
+    //          }, {
+    //            merge: true});
+    //        });
+    //      }
+    //      console.log(user);
+    //      createUser();
+    //    } else {
+    //      console.log("No user detected.");
+    //    }
+  </script>
+</body>
+
+
 </html>
