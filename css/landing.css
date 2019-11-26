@@ -4,8 +4,8 @@ body {
   background-image: url('../images/landingpg-bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
+  width: 100vw;
   height: 100vh;
-
 
 
   font-family: 'Lato', sans-serif !important;
@@ -26,7 +26,9 @@ body {
   box-shadow: 0px 0px 4px 1px white;
 }
 
-
+.navbar {
+  width: 100vw;
+}
 #midbar {
   text-align: center;
   margin-top: 150px;
