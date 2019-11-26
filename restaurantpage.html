@@ -3,7 +3,7 @@
 
 <head>
   <!-- Required meta tags -->
-  <title>Navbar Prototype</title>
+  <title>Restaurant Page</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://kit.fontawesome.com/68565aa008.js" crossorigin="anonymous"></script>
@@ -36,7 +36,7 @@
       border: none;
     }
     #searchBar:focus {
-      border: 3px solid #35cc49;
+      border: 2px solid #35cc49;
     }
     #banner {
       margin: auto 4%;
@@ -44,19 +44,19 @@
     #banner img {
       width: 100%;
       max-height: 350px;
-      box-shadow: 0px 0px 4px 0px #3fa836;
+      box-shadow: 0px 0px 4px 0px #48b574;
     }
     #search {
       width: 92%;
       margin: 20px auto;
-      box-shadow: 0px 0px 4px #3fa836;
+      box-shadow: 0px 0px 4px #48b574;
     }
     #basicInfo {
       display: flex;
       justify-content: flex-start;
       align-items: center;
       align-content: center;
-      box-shadow: 0px 2px 4px 0px #3fbf43;
+      box-shadow: 0px 2px 4px 0px #48b574;
       padding: 2em 1em;
       margin: auto 4%;
       margin-bottom: 4%;
@@ -94,7 +94,7 @@
     .tabButton {
       border: none;
       background: rgb(255,255,255);
-      background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(122,255,135,1) 0%, rgba(0,120,14,1) 100%); !important; 
+      background-color: #48b574 !important; 
       color: white;
       margin: 3px;     
       width: 30%;
@@ -110,7 +110,7 @@
     }
     #infoContainer {
       margin: 0 4%;
-      box-shadow: 0px 2px 4px 0px #3fbf43;
+      box-shadow: 0px 2px 4px 0px #48b574;
     }
     #about {
       margin: 5%;
@@ -121,13 +121,12 @@
     }
     #takeOut table {
       margin: 5% auto;
-      color: #3fa836
     }
     #takeOut table td:nth-child(3n) {
       padding-left: 2em;
     }
     #takeOut table td:nth-child(3n + 1) {
-      color: #3fa836
+      color: #48b574
     } 
     span.togo {
       padding-left: 1em;
@@ -138,7 +137,7 @@
     }
     div.reviewContainer {
       margin: 0 4%;
-      box-shadow: 0px 2px 4px 0px #3fbf43;
+      box-shadow: 0px 2px 4px 0px #48b574;
     }
     div.reviewContainer span.reviewer {
       display: block;
@@ -168,6 +167,7 @@
     #review-textarea {
       width: 100%;
       min-height: 200px;
+      box-shadow: 0px 2px 4px 1px #48b574;
     }
     #reviewButton {
       text-align: center;
@@ -183,36 +183,34 @@
   
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(122,255,135,1) 0%, rgba(0,120,14,1) 100%); !important;">
-    <a class="navbar-brand text-success" style="line-height: 2em;  font-size: 18pt;  color: white !important;" href="#">
-      <img style="margin-right: 5px;"src="images/logo_512_white.png" width="50" height="50" class="d-inline-block align-top" alt="">
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #48b574 !important; font-size: 18pt;">
+    <a class="navbar-brand text-light" style="line-height: 1.8em !important;"href="#">
+      <img src="images/logo_512_white.png" style="margin-right: 3% !important;" width="40" height="40" class="d-inline-block align-top" alt="">
       Green Eating App
     </a>
-    <button id="navBarToggler"class="navbar-toggler" style="background-color: white; box-shadow: 0px 0px 4px 0.1px white;"type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler" style="background-color: white !important;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" style="color: black !important;"></span>
+      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul style="font-size: 13pt !important;" class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link text-light" style="font-size: 16pt; color: white !important;" href="#">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" style="font-size: 16pt; color: white !important;" href="#">My Account</a>
+          <a class="nav-link text-light" href="#">My Account</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-light" style="font-size: 16pt; color: white !important;" href="#">Leave A Review</a>
+          <a class="nav-link text-light" href="#">Leave A Review</a>
         </li>
       </ul>
     </div>
-  </nav>
+    </nav>
 
   <div id="search" class="input-group">
     <input id="searchBar" type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
     <div class="input-group-append">
-      <button id="searchButton" style="background: rgb(255,255,255);
-background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(122,255,135,1) 0%, rgba(0,120,14,1) 100%); !important;" class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
+      <button id="searchButton" style="background-color: #48b574 !important;" class="btn btn-success" type="button"><i class="fas fa-search"></i></button>
     </div>
   </div>
   <div id="banner">

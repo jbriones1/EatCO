@@ -1,75 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 body {
-  background-image: url('../images/landingpage_background.jpg');
-  width: 100%;
+  background-image: url('../images/log-in-bg.jpg');
 
+  background-size: cover;
   background-repeat: no-repeat;
-
-
-  font-family: "Roboto", sans-serif;
-}
-
-body * {
-  font-family: inherit;
-}
-
-body #root {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-}
-
-#container {}
-
-
-header {
-  display: flex;
-  justify-content: space-between;
+  font-family: 'Lato', sans-serif !important;
 }
 
 
-
-.logo {
-  margin: 30px 0 0 30px;
-  width: 128px;
-  width: 128px;
-  padding: 2px;
-
-  box-shadow: 2px 2px 5px #fff;
-  background-color: #1E5B32;
-  border-radius: 20%;
-}
-
-.login {}
-
-.login a {
-  font-size: 20pt;
-  color: white;
-  margin: 30px 30px 0 0;
-
-  text-shadow: 2px 2px 5px #000;
-}
-
-.login a:hover {
-  text-decoration: none;
-}
-
-
-#midbar {
-  position: relative;
-  width: 90%;
-  margin-bottom: 5%;
-  bottom: -200px;
-}
-
-#midbar > p {
+#textContainer {
+  margin-top: 150px;
   text-align: center;
-  font-family: "Robot", sans-serif;
-  font-size: 50pt;
+  background-color: #48b574;
+  line-height: 1.3em;
+  
+  
+}
+#logIn {
+  font-size: 40pt;
   color: white;
+  display: inline;
+  text-shadow: 0px 0px 4px green;
+}
+#firebaseui-auth-container {
 
-  text-shadow: 2px 2px 5px#000;
+  padding: 0.5em;
+  margin-top: 75px;
 }
 
-.input-group {
-  margin-left: 5%;
-}

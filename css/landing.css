@@ -1,74 +1,35 @@
 
-
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 body {
-background-image: url('../images/landingpage_background.jpg');
-        width: 100%;
+background-image: url('../images/landingpg-bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
         
-        background-repeat: no-repeat;
 
         
-        font-family: "Roboto", sans-serif;
+        font-family: 'Lato', sans-serif !important;
       }
       
-      body * {
-        font-family: inherit;
-      }
-      
-      body
-      
-      #root {
-        display: flex;
-        flex-flow: column;
-        height: 100%;
-      }
-      
-      #container {
+#logIn {
+  background-color: #48b574;
+  display: inline;
+  padding: 1em 1.5em;
+}
 
-      }
-      
-      header {
-        display: flex;
-        justify-content: space-between;
-      }
-      
-       #navbarSupportedContent{
-   position:absolute;
+#logInButton {
+  color: white;
+  text-decoration: none;
+}
 
-   right:0;
-  }
-      
-      .logo {
-        margin: 30px 0 0 30px;
-        width: 128px;
-        width: 128px;
-        padding: 2px;
-        
-        box-shadow: 2px 2px 5px #fff;
-        background-color: #1E5B32;
-        border-radius: 20%;
-      }
-      
-      .login {
-      }
-      
-      .login a {
-        font-size: 20pt;
-        color: white;
-        margin: 30px 30px 0 0;
-        
-        text-shadow: 2px 2px 5px #000;
-      }
-      
-      .login a:hover {
-        text-decoration: none;
-      }
+#logIn:hover {
+  box-shadow: 0px 0px 4px 1px white;
+}
       
       
       #midbar {
-        position: relative;
-        width: 90%;
-        margin-bottom: 5%;
-        bottom: -200px;
+        text-align: center;
+        margin-top: 150px;
       }
       
       #midbar > p {
@@ -76,11 +37,6 @@ background-image: url('../images/landingpage_background.jpg');
         font-family: "Robot", sans-serif;
         font-size: 50pt;
         color: white;
-        
-        text-shadow: 2px 2px 5px#000;
-      }
-      
-      .input-group {
-        margin-left: 5%;
-      }
-      
+  
+        margin-bottom: 10%;
+        }

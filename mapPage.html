@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Testing of Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interactive Map</title>
     <meta charset="utf-8">
     <style>
       nav {
-        min-height: 100px;
+        height: inherit;
       }
       #map {
-        width: 100%;
-        height: 100vh
+        height: 95vh;
       }
-      @media 
     </style>
     <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
   <body>
-      <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #3fbf43">
+      <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #48b574 !important; font-size: 18pt;">
     <a class="navbar-brand text-light" href="#">
-      <img src="images/logo_512.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      <img src="images/logo_512_white.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Green Eating App
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler" style="background-color: white !important;" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul style="font-size: 13pt !important;" class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
         </li>
@@ -84,14 +83,14 @@
       function initMap() {
         var bcit = {lat: 49.250, lng: -123.000};
         var map = new google.maps.Map(
-          document.getElementById('map'), {zoom: 15.5, center: bcit});
+          document.getElementById('map'), {zoom: 14, center: bcit});
         var pinImage = {
-        url: './images/leafPin2.png',
-        labelOrigin: new google.maps.Point(65, 150)
+        url: './images/leafPin.png',
+        labelOrigin: new google.maps.Point(35, 80)
       };
         var marker2 = new google.maps.Marker({position: bcit, map: map, icon: pinImage, label: {
           color: 'black',
-          fontSize: '35pt',
+          fontSize: '18pt',
           text: 'BCIT',
           fontWeight: 'bold',
         }});
@@ -108,7 +107,7 @@
             label: {
             fontWeight: 'bold',
             color: 'black',
-            fontSize: '35pt',
+            fontSize: '20pt',
             text: name,
             textShadow: '10px 10px red'
           }});
