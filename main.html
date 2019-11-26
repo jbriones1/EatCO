@@ -45,7 +45,8 @@
       </ul>
     </div>
   </nav>
-  <h1 id="welcome">Welcome!</h1>
+  <h1 id="welcome">Welcome</h1>
+  <p id="name"></p>
   <div id="search" class="input-group">
     <input type="text" class="form-control" placeholder="Search" aria-label="" aria-describedby="basic-addon1">
     <div class="input-group-append">
@@ -114,7 +115,7 @@
       console.log(user.displayName + " working");
       if (user) {
         console.log(user.displayName);
-        document.getElementById("test").innerHTML = user.displayName;
+        document.getElementById("name").innerHTML = user.displayName;
         user.once('value', function (snapshot) {
           if (snapshot.exists()) {
             console.log('exists');

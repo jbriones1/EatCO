@@ -23,11 +23,12 @@ a {
 }
 
 #welcome {
+  text-align: center;
   color: white;
   text-shadow: 0px 0px 4px black;
-  margin: 10%;
-  margin-top: 55%;
   letter-spacing: 0.01em;
+  margin-top: 100px;
+  
 }
 
 #search {
@@ -35,7 +36,12 @@ a {
   margin: 0 auto;
   box-shadow: 0px 0px 4px 0x #48b574;
 }
-
+#name {
+  color: white;
+  font-size: 30pt;
+  text-align: center;
+  text-shadow: 0px 0px 4px black;
+}
 #or {
   margin: 10%;
   text-align: center;
@@ -57,11 +63,12 @@ a {
 
 @media only screen and (min-width: 768px) {
   #welcome {
-    margin: 5%;
+    font-size: 70pt;
     text-align: center;
-    font-size: 60pt;
   }
-
+  #name {
+    font-size: 50pt;
+  }
   #search {
     width: 50%;
   }
@@ -69,3 +76,4 @@ a {
   #or {
     margin: 5%;
   }
+}
