@@ -218,18 +218,25 @@
     // ------------------------------
     // Grabs the review section
     var reviews = restaurant.collection("Reviews");
-    var reviewSection = document.getElementById("review-section");
+    var reviewSection = document.getElementById("reviews");
 
     function loadReviews() { // function to load reviews to the page
       reviews.get() // grabs the docs from the reviews docs from the "Reviews" collection
         .then(function (snap) {
           snap.forEach(function (doc) { // goes through each document
             let r = doc.data().review; // grabs the review portion
+            let t = doc.data().date;
 
             // creates a bunch of paragraphs that list out all of the reviews.
+            let date = document.createElement("span");
+            date.setAttribute("class", "timeStamp");
             let para = document.createElement("div");
+            para.setAttribute("class", "reviewContainer");
             para.setAttribute("id", r);
             reviewSection.appendChild(para);
+            let dateNode = document.createTextNode(t);
+            date.appendChild(dateNode);
+            para.appendChild(date);
             let node = document.createTextNode(r);
             para.appendChild(node);
           })
@@ -242,10 +249,17 @@
       var reviewText = document.getElementById("review-textarea").value; // text field where the review is typed
 
       reviews.doc().set({
-        review: reviewText, // creates a doc that has a review field that stores what the review is
+        review: reviewText,
+        date: firebase.firestore.Timestamp.fromDate(new Date())// creates a doc that has a review field that stores what the review is
       }).then(function () {
         let para = document.createElement("div");
+        para.setAttribute("class", "reviewContainer")
+        let date = document.createElement("span");
+        date.setAttribute("class", "timeStamp");
+        reviewSection.appendChild(date);
         reviewSection.appendChild(para);
+        
+        
         let node = document.createTextNode(reviewText);
         para.appendChild(node); // creates a paragraph of the review onto the webpage
         reviewText.value = " "; // supposed to set the textfield to nothing after review is submitted
