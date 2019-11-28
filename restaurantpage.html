@@ -16,7 +16,7 @@
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="blur">
 
   <nav class="navbar navbar-expand-lg navbar-light sticky-top"
     style="background-color: #48b574 !important; font-size: 18pt;">
@@ -216,7 +216,6 @@
     
     function showRestoImage() {
       sto.ref().child(restoId+".jpg").getDownloadURL().then(function(url) {
-        document.getElementById("banner").src = url;
         document.getElementById("resto-image").src = url;
       });
     }
@@ -306,6 +305,12 @@
         x[i].style.display = "none";
       }
       document.getElementById(tabName).style.display = "block";
+    }
+
+    window.setTimeout(loadBlur, 2000);
+
+    function loadBlur() {
+      $(".blur").removeClass("blur");
     }
     
     loadRestoInfo();

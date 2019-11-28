@@ -7,6 +7,10 @@ body > div {
   margin: 10px;
 }
 
+  .blur {
+    filter: blur(100px);
+  }
+
     a {
       letter-spacing: 0.05em;
       word-spacing: 0em;
