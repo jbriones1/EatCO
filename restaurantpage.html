@@ -26,11 +26,10 @@
       EatCO
     </a>
 
-    
     <!--------------------------------->
     <!---------- NAVBAR MENU ---------->
     <!--------------------------------->
-<!--
+
     <button class="navbar-toggler" style="background-color: white !important;" type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
       aria-label="Toggle navigation">
@@ -38,18 +37,18 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul style="font-size: 13pt !important;" class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <!-- <li class="nav-item active">
           <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="nav-link text-light" href="#">My Account</a>
-        </li>
+        </li> -->
         <li class="nav-item">
-          <a class="nav-link text-light" href="#">Leave A Review</a>
+          <a class="nav-link text-light" href="mapPage.html">Map</a>
         </li>
       </ul>
     </div>
--->
+
   </nav>
 
   <!-------------------------------->
@@ -233,7 +232,7 @@
     var reviewLeftSection = document.getElementById("review-section");
 
     function loadReviews() { // function to load reviews to the page
-      reviews.get() // grabs the docs from the reviews docs from the "Reviews" collection
+      reviews.orderBy("date").get() // grabs the docs from the reviews docs from the "Reviews" collection
         .then(function (snap) {
           snap.forEach(function (doc) { // goes through each document
             let r = doc.data().review; // grabs the review portion
