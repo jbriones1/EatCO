@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>EatCo</title>
+  <title>EatCO</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="./css/mainv2.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,17 +14,16 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <title>EatCo</title>
+  <title>EatCO</title>
 
 </head>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light sticky-top"
     style="background-color: #48b574 !important; font-size: 18pt;">
-    <a class="navbar-brand text-light" style="line-height: 1.8em !important;" href="#">
-      <img src="images/logo_512_white.png" style="margin-right: 3% !important;" width="40" height="40"
-        class="d-inline-block align-top" alt="">
-      EatCo
+    <a class="navbar-brand text-light" href="main.html">
+      <img src="images/logo_512_white.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      EatCO
     </a>
     <button class="navbar-toggler" style="background-color: white !important;" type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -45,8 +44,8 @@
       </ul>
     </div>
   </nav>
-  <h1 id="welcome">Welcome, let's get started</h1>
-  <p id="name"></p>
+  <h1 id="welcome">Welcome!<br> Let's get started,</h1>
+  <h1 id="name"></h1>
   <div id="mapButton">
   <a id="viewMap" href="mapPage.html">View Map</a>
   </div>
@@ -84,6 +83,7 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -107,47 +107,20 @@
   <!-- <script type="text/javascript" type="user_id.js"></script> -->
 
   <script>
-    console.log("inside mainv2.html");
-    console.log(firebase.auth().currentUser);
     firebase.auth().onAuthStateChanged(function (user) {
-      console.log(user.displayName + " working");
       if (user) {
         console.log(user.displayName);
-        document.getElementById("name").innerHTML = user.displayName;
-        user.once('value', function (snapshot) {
-          if (snapshot.exists()) {
-            console.log('exists');
-          } else {
-            db.collection("users").add({
-              "name": user.displayName,
-              "email": user.email,
-              "userid": user.uid
-            });
-          }
-        });
+        let firstname = user.displayName.split(' ')
+        document.getElementById("name").innerHTML = firstname[0];
+        db.collection("users").doc(user.uid).set({
+          "name": user.displayName,
+          "email": user.email,
+          "userid": user.uid
+        },{merge: true});
       } else {
         console.log(user);
       }
     });
-
-
-
-    //    if (user) {
-    //      function createUser() {
-    //        firebase.auth().onAuthStateChanged(function (user) {
-    //          console.log("working");
-    //          db.collection("users").doc("user.id").set({
-    //            "name": user.displayName,
-    //            "email": user.email,
-    //          }, {
-    //            merge: true});
-    //        });
-    //      }
-    //      console.log(user);
-    //      createUser();
-    //    } else {
-    //      console.log("No user detected.");
-    //    }
   </script>
 </body>
 

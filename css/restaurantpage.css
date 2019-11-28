@@ -18,6 +18,7 @@ body > div {
     #banner img {
       width: 90%;
       max-height: 350px;
+      max-width: 50%;
       box-shadow: 0px 1px 4px 0px #48b574;
       
     }

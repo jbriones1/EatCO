@@ -20,11 +20,12 @@
 
   <nav class="navbar navbar-expand-lg navbar-light sticky-top"
     style="background-color: #48b574 !important; font-size: 18pt;">
-    <a class="navbar-brand text-light" style="line-height: 1.8em !important;" href="#">
+    <a class="navbar-brand text-light" style="line-height: 1.8em !important;" href="main.html">
       <img src="images/logo_512_white.png" style="margin-right: 3% !important;" width="40" height="40"
         class="d-inline-block align-top" alt="">
-      Green Eating App
+      EatCO
     </a>
+<!--
     <button class="navbar-toggler" style="background-color: white !important;" type="button" data-toggle="collapse"
       data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
       aria-label="Toggle navigation">
@@ -43,6 +44,7 @@
         </li>
       </ul>
     </div>
+-->
   </nav>
 
   <div id="search" class="input-group">
@@ -54,7 +56,7 @@
     </div>
   </div>
   <div id="banner">
-    <img src="https://dummyimage.com/600x400/000/fff">
+    <img id="resto-image" src="https://dummyimage.com/Jon+messed+up/000/fff">
   </div>
   <div id="content">
     <div id="basicInfo">
@@ -81,11 +83,7 @@
     </div>
 
     <div id="about" class="info">
-      <p>Video provides a powerful way to help you prove your point. When you click Online Video, you can paste in the
-        embed code for the video you want to add. Video provides a powerful way to help you prove your point. When you
-        click Online Video, you can paste in the embed code for the video you want to add. Video provides a powerful way
-        to help you prove your point. When you click Online Video, you can paste in the embed code for the video you
-        want to add.</p>
+      <p id="description">Tell Jon it's broke</p>
     </div>
 
     <div id="takeOut" class="info" style="display:none">
@@ -107,11 +105,6 @@
           <td>Plastic</td>
         </tr>
       </table>
-
-
-
-
-
     </div>
 
     <div id="foodSource" class="info" style="display:none">
@@ -120,6 +113,7 @@
   </div>
   <div id="reviews">
     <h3>Reviews</h3>
+<!--
     <div class='reviewContainer'>
       <span class='reviewer'>Brian Li</span>
       <span class='timeStamp'>2019-11-23</span>
@@ -138,12 +132,12 @@
         provides a powerful way to help you prove your point. When you click Online Video, you can paste in the embed
         code for the video you want to add.</p>
     </div>
+-->
     <div id="review-section">
       <div class="review-box">
         <form>
           <div>
-            <span id="label">Leave a Review!</span>
-            <textarea id="review-textarea"></textarea>
+            <textarea id="review-textarea" placeholder="Leave a review!"></textarea>
             <div id="reviewButton">
               <button type="button" id="send-review" class="tabButton" onclick="submitReview"> Leave Review </button>
             </div>
@@ -157,6 +151,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-storage.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
   <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
@@ -174,6 +169,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     var db = firebase.firestore();
+    var sto = firebase.storage();
   </script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
@@ -213,6 +209,12 @@
         $("title").html(n);
       });
     }
+    
+    function showRestoImage() {
+      sto.ref().child(restoId+".jpg").getDownloadURL().then(function(url) {
+        document.getElementById("resto-image").src = url;
+      });
+    }
 
     // ------------------------------
     // ------ Writing a review ------
@@ -228,53 +230,67 @@
           snap.forEach(function (doc) { // goes through each document
             let r = doc.data().review; // grabs the review portion
             let t = doc.data().date;
+            let n = doc.data().reviewer;
             tDate = t.toDate();
             let dateFormatted = tDate.toISOString().substring(0,10);
-            console.log(dateFormatted);
-            // creates a bunch of paragraphs that list out all of the reviews.
+//            console.log(dateFormatted);
+            
+            let rvr = document.createElement("span");
+            rvr.setAttribute("class", "reviewer");
             let date = document.createElement("span");
             date.setAttribute("class", "timeStamp");
-            let para = document.createElement("div");
-            para.setAttribute("class", "reviewContainer");
-            para.setAttribute("id", r);
-            reviewSection.insertBefore(para, reviewLeftSection);
+            let div = document.createElement("div");
+            div.setAttribute("class", "reviewContainer");
+            div.setAttribute("id", doc.id);
+            reviewSection.insertBefore(div, reviewLeftSection);
             let dateNode = document.createTextNode(dateFormatted);
-
             date.appendChild(dateNode);
             
-            para.appendChild(date);
+            div.appendChild(rvr);
+            let rvrnode = document.createTextNode(n);
+            rvr.appendChild(rvrnode);
+            
+            div.appendChild(date);
             let node = document.createTextNode(r);
-            para.appendChild(node);
-            console.log(dateNode);
+            div.appendChild(node);
           })
         });
     }
+    // SUBMITTING REVIEWS
     document.getElementById("send-review").addEventListener("click",
     submitReview); // attaches a click listener to the submit button
 
     function submitReview(e) { // function to write a review to the restaurant
       var reviewText = document.getElementById("review-textarea").value; // text field where the review is typed
       var reviewDate = firebase.firestore.Timestamp.fromDate(new Date());
+      var username = firebase.auth().currentUser;
+      
       reviews.doc().set({
         review: reviewText,
-        date: reviewDate// creates a doc that has a review field that stores what the review is
+        date: reviewDate,
+        reviewer: username.displayName
       }).then(function () {
-        let para = document.createElement("div");
-        para.setAttribute("class", "reviewContainer")
-        let date = document.createElement("span");
-        date.setAttribute("class", "timeStamp");
-        reviewSection.insertBefore(para, reviewLeftSection);
         let dateObj = reviewDate.toDate()
         let dateFormatted = dateObj.toISOString().substring(0,10);
+        
+        let rvr = document.createElement("span");
+        rvr.setAttribute("class", "reviewer");
+        let date = document.createElement("span");
+        date.setAttribute("class", "timeStamp");
+        let div = document.createElement("div");
+        div.setAttribute("class", "reviewContainer");
+        reviewSection.insertBefore(div, reviewLeftSection);
         let dateNode = document.createTextNode(dateFormatted);
-        let node = document.createTextNode(reviewText);
         date.appendChild(dateNode);
-        para.appendChild(date);
-        para.appendChild(node); // creates a paragraph of the review onto the webpage
-        
-        
-      
-        reviewText = ""; // supposed to set the textfield to nothing after review is submitted
+
+        div.appendChild(rvr);
+        let rvrnode = document.createTextNode(username.displayName);
+        rvr.appendChild(rvrnode);
+
+        div.appendChild(date);
+        let node = document.createTextNode(reviewText);
+        div.appendChild(node);
+        document.getElementById("review-textarea").value = " "; // supposed to set the textfield to nothing after review is submitted
       })
     }
 
@@ -286,8 +302,9 @@
       }
       document.getElementById(tabName).style.display = "block";
     }
-
+    
     loadRestoInfo();
+    showRestoImage();
     loadReviews();
   </script>
 </body>
