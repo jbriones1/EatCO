@@ -13,6 +13,17 @@
     #map {
       height: 92vh;
     }
+
+    img[src*='leafPin'] {
+      height: 50% !important;
+      width: 50% !important;
+    }
+
+    .labels {
+      color: green;
+      font-size: 10pt;
+      font-weight: bold;
+    }
   </style>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -84,6 +95,7 @@
   </script>
 
   <script>
+
     function initMap() {
       var bcit = {
         lat: 49.250,
@@ -96,15 +108,15 @@
         });
       var pinImage = {
         url: './images/leafPin.png',
-        labelOrigin: new google.maps.Point(35, 80)
+        labelOrigin: new google.maps.Point(15, 40)
       };
       var marker2 = new google.maps.Marker({
         position: bcit,
         map: map,
         icon: pinImage,
         label: {
-          color: 'black',
-          fontSize: '18pt',
+          color: 'green',
+          fontSize: '10pt',
           text: 'BCIT',
           fontWeight: 'bold',
         }
@@ -123,7 +135,7 @@
           var marker = new google.maps.Marker({
             position: {
               lat: lat,
-              lng: long
+              lng: long,
             },
             map: map,
             labelAnchor: new google.maps.Point(100, 0),
@@ -131,11 +143,11 @@
             icon: pinImage,
             url: doc.data().link,
             label: {
+              textShadow: '10px 10px #ff0000',
               fontWeight: 'bold',
-              color: 'black',
-              fontSize: '20pt',
-              text: name,
-              textShadow: '10px 10px red'
+              color: 'green',
+              fontSize: '10pt',
+              text: name
             }
           });
           google.maps.event.addListener(marker, 'click', function () {
