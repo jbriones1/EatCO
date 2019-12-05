@@ -1,3 +1,4 @@
+// Creates the map and centers it around BCIT
 function initMap() {
   var bcit = {
     lat: 49.250,
@@ -24,7 +25,7 @@ function initMap() {
     }
   });
 
-
+// Creates the pins for each restaurant in the database
 db.collection('Restaurants').get().then(function (querySnapshot) {
   querySnapshot.forEach(function (doc) {
     console.log(doc.id, " => ", doc.data());

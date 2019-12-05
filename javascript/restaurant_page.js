@@ -1,8 +1,10 @@
+// Gets the restaurant ID from the URL. Taken from the map page.
 var queryString = decodeURIComponent(window.location.search);
 var queries = queryString.split("?");
 var restoId = queries[1];
 var restaurant = db.collection("Restaurants").doc(restoId);
 
+// Declaration of various collections
 var reviews = restaurant.collection("Reviews");
 var reviewSection = document.getElementById("reviews");
 var reviewLeftSection = document.getElementById("review-section");
@@ -32,6 +34,7 @@ function loadRestoInfo() {
   });
 }
 
+// Grabs the restaurant image from Firestore
 function showRestoImage() {
   sto.ref().child(restoId+".jpg").getDownloadURL().then(function(url) {
     document.getElementById("resto-image").src = url;
@@ -53,6 +56,7 @@ function loadReviews() { // function to load reviews to the page
         let dateFormatted = tDate.toISOString().substring(0,10);
 //            console.log(dateFormatted);
 
+        // Creates elements for the review section
         let rvr = document.createElement("span");
         rvr.setAttribute("class", "reviewer");
         let date = document.createElement("span");
@@ -75,7 +79,9 @@ function loadReviews() { // function to load reviews to the page
     });
 }
 
-// SUBMITTING REVIEWS
+// ------------------------------
+// ----- Submitting a review ----
+// ------------------------------
 document.getElementById("send-review").addEventListener("click",
 submitReview); // attaches a click listener to the submit button
 
@@ -84,6 +90,7 @@ function submitReview(e) { // function to write a review to the restaurant
   var reviewDate = firebase.firestore.Timestamp.fromDate(new Date());
   var username = firebase.auth().currentUser;
 
+  // Creates the review and adds it to the database
   reviews.doc().set({
     review: reviewText,
     date: reviewDate,
@@ -92,6 +99,7 @@ function submitReview(e) { // function to write a review to the restaurant
     let dateObj = reviewDate.toDate()
     let dateFormatted = dateObj.toISOString().substring(0,10);
 
+    // Creates a new review box and adds it to the HTML
     let rvr = document.createElement("span");
     rvr.setAttribute("class", "reviewer");
     let date = document.createElement("span");
@@ -113,6 +121,7 @@ function submitReview(e) { // function to write a review to the restaurant
   })
 }
 
+// Allows the tabs to be switched in the restaurant 
 function openTab(tabName) {
   var i;
   var x = document.getElementsByClassName("info");
