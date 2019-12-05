@@ -1,0 +1,18 @@
+nav {
+  height: inherit;
+}
+
+#map {
+  height: 92vh;
+}
+
+img[src*='leafPin'] {
+  height: 50% !important;
+  width: 50% !important;
+}
+
+.labels {
+  color: green;
+  font-size: 10pt;
+  font-weight: bold;
+}

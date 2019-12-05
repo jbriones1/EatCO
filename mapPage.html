@@ -5,26 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Interactive Map</title>
   <meta charset="utf-8">
-  <style>
-    nav {
-      height: inherit;
-    }
-
-    #map {
-      height: 92vh;
-    }
-
-    img[src*='leafPin'] {
-      height: 50% !important;
-      width: 50% !important;
-    }
-
-    .labels {
-      color: green;
-      font-size: 10pt;
-      font-weight: bold;
-    }
-  </style>
+  <style href="css/map_page.css" type="text/css" rel="stylesheet"></style>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -37,32 +18,11 @@
       <img src="images/logo_512_white.png" width="30" height="30" class="d-inline-block align-top" alt="">
       EatCO
     </a>
-<!--
-    <button class="navbar-toggler" style="background-color: white !important;" type="button" data-toggle="collapse"
-      data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul style="font-size: 13pt !important;" class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">My Account</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-light" href="#">Leave A Review</a>
-        </li>
-      </ul>
-    </div>
--->
+
   </nav>
 
   <div id="map"></div>
 
-  <!--    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6mPVGXmHQHszn6UfQto-c11KkpdsyoTg&callback=initMap">
-    </script>-->
   <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
 
@@ -94,71 +54,7 @@
     var db = firebase.firestore();
   </script>
 
-  <script>
-
-    function initMap() {
-      var bcit = {
-        lat: 49.250,
-        lng: -123.000
-      };
-      var map = new google.maps.Map(
-        document.getElementById('map'), {
-          zoom: 14,
-          center: bcit
-        });
-      var pinImage = {
-        url: './images/leafPin.png',
-        labelOrigin: new google.maps.Point(15, 40)
-      };
-      var marker2 = new google.maps.Marker({
-        position: bcit,
-        map: map,
-        icon: pinImage,
-        label: {
-          color: 'green',
-          fontSize: '10pt',
-          text: 'BCIT',
-          fontWeight: 'bold',
-        }
-      });
-
-
-      db.collection('Restaurants').get().then(function (querySnapshot) {
-        querySnapshot.forEach(function (doc) {
-          console.log(doc.id, " => ", doc.data());
-          var lat = doc.data().location._lat;
-          var long = doc.data().location._long;
-          var name = doc.data().Name;
-          var docid = doc.id;
-          console.log(name);
-          console.log(docid);
-          var marker = new google.maps.Marker({
-            position: {
-              lat: lat,
-              lng: long,
-            },
-            map: map,
-            labelAnchor: new google.maps.Point(100, 0),
-            title: name,
-            icon: pinImage,
-            url: doc.data().link,
-            label: {
-              textShadow: '10px 10px #ff0000',
-              fontWeight: 'bold',
-              color: 'green',
-              fontSize: '10pt',
-              text: name
-            }
-          });
-          google.maps.event.addListener(marker, 'click', function () {
-            window.location.href = "restaurantpage.html?"+docid;
-          });
-        });
-      });
-
-
-    }
-  </script>
+  <script src="javascript/map_page.js"></script>
   <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6mPVGXmHQHszn6UfQto-c11KkpdsyoTg&callback=initMap">
   </script>
