@@ -92,20 +92,24 @@
   </script>
 
   <script>
+    // Initializing Map
     function initMap() {
       var bcit = {
         lat: 49.250,
         lng: -123.000
       };
+      // Assigning map to "#map" div, assigning center to BCIT
       var map = new google.maps.Map(
         document.getElementById('map'), {
           zoom: 14,
           center: bcit
         });
+      // Creation of custom pins/markers for map
       var pinImage = {
         url: './images/leafPin.png',
         labelOrigin: new google.maps.Point(15, 40)
       };
+      // Creation of pin at BCIT
       var marker2 = new google.maps.Marker({
         position: bcit,
         map: map,
@@ -117,6 +121,7 @@
           fontWeight: 'bold',
         }
       });
+      // Obtaining geolocation from database
       db.collection('Restaurants').get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
           console.log(doc.id, " => ", doc.data());
@@ -144,6 +149,7 @@
               text: name
             }
           });
+          // Add event listener to each pin
           google.maps.event.addListener(marker, 'click', function () {
             window.location.href = "restaurantpage.html?"+docid;
           });
