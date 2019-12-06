@@ -13,6 +13,7 @@ var reviewLeftSection = document.getElementById("review-section");
 // ------ Restaurant Info  ------
 // ------------------------------
 
+// Grabs the restaurant info from the restaurant doc and adds it to the page.
 function loadRestoInfo() {
   restaurant.get().then(function (doc) {
     var n = doc.data().Name;
@@ -121,7 +122,7 @@ function submitReview(e) { // function to write a review to the restaurant
   })
 }
 
-// Allows the tabs to be switched in the restaurant 
+// Allows the tabs to be switched in the restaurant page
 function openTab(tabName) {
   var i;
   var x = document.getElementsByClassName("info");
@@ -131,6 +132,7 @@ function openTab(tabName) {
   document.getElementById(tabName).style.display = "block";
 }
 
+// Function to remove the blur after the page has loaded in
 function loadBlur() {
   $(".blur").removeClass("blur");
 }

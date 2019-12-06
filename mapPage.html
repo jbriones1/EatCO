@@ -92,6 +92,7 @@
   </script>
 
   <script>
+    // !!! NEEDS TO STAY IN THE HTML, OR ELSE IT STOPS WORKING !!!
     // Initializing Map
     function initMap() {
       var bcit = {
@@ -104,7 +105,7 @@
           zoom: 14,
           center: bcit
         });
-      // Creation of custom pins/markers for map
+      // Choosing the picture of the map pin icon
       var pinImage = {
         url: './images/leafPin.png',
         labelOrigin: new google.maps.Point(15, 40)
@@ -136,6 +137,7 @@
               lat: lat,
               lng: long,
             },
+            // Create a pin for each restaurant
             map: map,
             labelAnchor: new google.maps.Point(100, 0),
             title: name,

@@ -53,6 +53,8 @@ db.collection('Restaurants').get().then(function (querySnapshot) {
         text: name
       }
     });
+    // When a pin is clicked, add the restaurant's unique ID to the url and move to
+    // to the restaurant page.
     google.maps.event.addListener(marker, 'click', function () {
       window.location.href = "restaurantpage.html?"+docid;
     });
