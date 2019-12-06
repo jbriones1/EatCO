@@ -93,7 +93,8 @@
 
   <script>
     // !!! NEEDS TO STAY IN THE HTML, OR ELSE IT STOPS WORKING !!!
-    // Initializing Map
+    // Initializes the map and creates pins.
+    // Called when the map page loads.
     function initMap() {
       var bcit = {
         lat: 49.250,
@@ -105,12 +106,12 @@
           zoom: 14,
           center: bcit
         });
-      // Choosing the picture of the map pin icon
+      // Choose the picture of the map pin icon
       var pinImage = {
         url: './images/leafPin.png',
         labelOrigin: new google.maps.Point(15, 40)
       };
-      // Creation of pin at BCIT
+      // Creation of pin at BCIT, the center
       var marker2 = new google.maps.Marker({
         position: bcit,
         map: map,
@@ -122,7 +123,7 @@
           fontWeight: 'bold',
         }
       });
-      // Obtaining geolocation from database
+      // Reads restaurant locations from the database.
       db.collection('Restaurants').get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
           console.log(doc.id, " => ", doc.data());
@@ -152,6 +153,8 @@
             }
           });
           // Add event listener to each pin
+          // When a pin is clicked, move to the restaurant page
+          // and append the url with the restaurant ID
           google.maps.event.addListener(marker, 'click', function () {
             window.location.href = "restaurantpage.html?"+docid;
           });

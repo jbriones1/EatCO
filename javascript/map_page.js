@@ -1,4 +1,5 @@
 // Creates the map and centers it around BCIT
+// Called when the map page is loaded.
 function initMap() {
   var bcit = {
     lat: 49.250,
@@ -26,6 +27,7 @@ function initMap() {
   });
 
 // Creates the pins for each restaurant in the database
+// Called when the map page is loaded.
 db.collection('Restaurants').get().then(function (querySnapshot) {
   querySnapshot.forEach(function (doc) {
     console.log(doc.id, " => ", doc.data());
@@ -54,7 +56,7 @@ db.collection('Restaurants').get().then(function (querySnapshot) {
       }
     });
     // When a pin is clicked, add the restaurant's unique ID to the url and move to
-    // to the restaurant page.
+    // to the restaurant page. Reads the doc id from the database.
     google.maps.event.addListener(marker, 'click', function () {
       window.location.href = "restaurantpage.html?"+docid;
     });
